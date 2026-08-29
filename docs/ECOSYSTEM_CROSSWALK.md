@@ -8,19 +8,40 @@ Authority transfer: NONE
 
 This dedicated repository is the primary GitHub home for **CLOS research documentation**. That does **not** make CLOS a sovereign authority over the existing Velantrim projects.
 
-CLOS discovers and tests substrate-neutral cognitive requirements. A validated consequence moves to another project only through an explicit owner-specific crosswalk and that project's own governance.
+CLOS is a **research surface**: it discovers, compares, and tests substrate-neutral cognitive requirements. A validated consequence moves to another project only through an explicit owner-specific crosswalk and that project's own governance.
 
-## Ownership map
+```text
+CLOS RESEARCH SURFACE
+≠ PROJECT-LOCAL OWNER
+≠ NEW ECOSYSTEM APEX
+```
+
+## Project-local ownership map
+
+The table below intentionally lists only the six existing project-local owners. CLOS is not a seventh peer owner in this map.
 
 | Project | Owns / evaluates | CLOS material that may belong there | Must not receive automatically |
 |---|---|---|---|
-| ⚗️ CLOS | cross-project cognitive research blueprint, distinctions, fixtures, synthesis | research questions, comparative architecture, crosswalks, falsification packets | sibling-project Canon, runtime authority, automatic implementation |
 | 🌀 Mentaury Soul | cognition, beliefs, inquiry, self/identity, governed cognitive change | attention, inquiry, representation, sufficiency, stopping, belief-state consequences, cognition/identity distinctions | runtime/action authority; other projects' Canon |
 | 🧬 Native Kernel | substrate-neutral semantic and epistemic-history obligations | proven invariants about provenance, uncertainty, revision, loss, currentness, semantic preservation | full CLOS research program; cognition ownership |
 | 💠 Crystal | memory/evidence/provenance/Canon admission | memory representation, provenance-preserving retrieval, evidence consequences of lossy views | global cognition engine or CLOS authority |
 | 🌎 Continuum | process continuity across inference/context replacement | currentness, handoff, restart/reopen semantics, minimum sufficient process state | cognition engine or epistemic truth authority |
 | 🗿 Titan | orchestration, tools, providers, execution host | runtime realization of validated cognitive policies or Reader/candidate-access mechanisms | research findings as production authorization |
 | 🪁 Mentaury-Kernel | cross-domain composition invariants | rules required when CLOS-derived meaning crosses independently governed domains | internal cognition, scheduler, third brain |
+
+## What CLOS itself holds
+
+CLOS may hold:
+
+- research questions;
+- comparative architecture;
+- status-labelled distinctions;
+- evidence synthesis;
+- crosswalks;
+- falsification packets / discriminating fixtures;
+- historical research trajectories.
+
+It does **not** thereby own sibling-project Canon, runtime authority, implementation authority, or project-local domain governance.
 
 ## Admission rule for cross-project transfer
 
