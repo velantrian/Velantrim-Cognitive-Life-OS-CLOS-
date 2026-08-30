@@ -7,10 +7,11 @@ Before changing anything, read in order:
 1. `README.md`
 2. `docs/CURRENT_STATUS.md`
 3. `docs/CLOS_BLUEPRINT.md`
-4. `docs/EVIDENCE_LEDGER.md`
-5. `docs/DISCRIMINATING_FIXTURES.md`
-6. `docs/ECOSYSTEM_CROSSWALK.md`
-7. `docs/RESEARCH_SURFACES.md`
+4. `docs/RESEARCH_SYNTHESIS_2026_08_29.md`
+5. `docs/EVIDENCE_LEDGER.md`
+6. `docs/DISCRIMINATING_FIXTURES.md`
+7. `docs/ECOSYSTEM_CROSSWALK.md`
+8. `docs/RESEARCH_SURFACES.md`
 
 ## Core operating boundary
 

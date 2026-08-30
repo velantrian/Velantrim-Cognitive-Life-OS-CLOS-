@@ -1,29 +1,20 @@
 # ⚗️ VELANTRIM COGNITIVE LIFE OS · CLOS
 
-**Русский** · research-first · substrate-neutral · measurement-first
+**English** · [Русская версия](README.ru.md) · research-first · substrate-neutral · measurement-first
 
-> **Архитектура того, как знание живёт во времени:** восприятие, представление,
-> память, неопределённость, мышление, решение, действие, последствия и пересмотр —
-> без тихой потери provenance, currentness, semantic status и authority boundaries.
+> **CLOS** is a research-first cognitive architecture program about which distinctions, states, transitions, revision semantics, and authority boundaries must survive over time independently of any particular implementation substrate.
 >
-> **Зрелость:** active research blueprint · NOT final Canon · NOT runtime authorization.
+> **Maturity:** `ACTIVE RESEARCH BLUEPRINT · NOT FINAL CANON · NOT IMPLEMENTATION AUTHORIZATION · NOT RUNTIME AUTHORIZATION`
 
-[🗺️ Архитектура](docs/CLOS_BLUEPRINT.md) ·
-[📊 Текущий статус](docs/CURRENT_STATUS.md) ·
-[🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) ·
-[📚 Evidence ledger](docs/EVIDENCE_LEDGER.md) ·
-[🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) ·
-[🧭 Ecosystem crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
+[🗺️ Blueprint](docs/CLOS_BLUEPRINT.md) · [📊 Current status](docs/CURRENT_STATUS.md) · [🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) · [📚 Evidence ledger](docs/EVIDENCE_LEDGER.md) · [🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) · [🧭 Ecosystem crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
 
 ---
 
-## 👋 CLOS за 60 секунд
+## 👋 CLOS in 60 seconds
 
-Обычная AI-архитектура часто начинается с технологий: LLM, RAG, vector DB, graph,
-agent framework, tools. CLOS начинает с другого вопроса:
+Many AI architectures begin with technologies: LLMs, RAG, vector databases, graphs, tools, or agent frameworks. CLOS starts with a different question:
 
-> **Какие когнитивные различия, состояния, переходы и границы полномочий должны
-> сохраниться независимо от того, какой технологией система реализована?**
+> **Which cognitive distinctions, states, transitions, and authority boundaries must remain meaningful even if the implementation technology is replaced?**
 
 ```text
 🌍 reality / experience
@@ -53,175 +44,68 @@ agent framework, tools. CLOS начинает с другого вопроса:
 🪞 revision / learning ↺
 ```
 
-Это **не обязательный control flow** и не готовый module graph. Узлы могут работать
-параллельно, повторяться, отсутствовать, останавливаться на UNKNOWN или
-реализовываться совершенно разными механизмами.
+This is **not a mandatory control flow, module graph, or ownership map**. Nodes may be parallel, repeated, absent, revisited, or implemented through different mechanisms.
 
 ---
 
-## 🧠 Главная идея
+## 🧠 Core architectural stance
 
 ```text
-АРХИТЕКТУРА
-= сохраняемые различия
-+ обязательства
-+ состояния / переходы
+ARCHITECTURE
+= distinctions that must remain meaningful
++ state / transition obligations
 + provenance / currentness
-+ границы полномочий
++ revision history
++ authority boundaries
 
-ТЕХНОЛОГИЯ
-= сменный способ реализации
+TECHNOLOGY
+= a replaceable implementation choice
 ```
 
-Поэтому:
+Therefore:
 
 ```text
-LLM ≠ Cognitive Life OS
-RAG ≠ knowledge
 retrieval ≠ evidence
-graph ≠ truth
-confidence ≠ evidence strength
-coherence ≠ truth
 claim ≠ belief
 belief ≠ truth
+confidence ≠ evidence strength
+coherence ≠ truth
 identity ≠ authority
 capability ≠ permission
-research ≠ runtime
+research ≠ Canon
+Canon ≠ implementation authorization
+implementation ≠ runtime authorization
 model output ≠ Canon
 ```
 
----
+Across compression, retrieval, reconstruction, summarization, and transfer, material distinctions should be preserved or explicitly marked as lost: semantic role, provenance/ownership, context/scope, time/currentness, uncertainty, revision history, and authority/constraint.
 
-## 🗺️ Три текущих high-information research family
-
-### 🌍 1. Epistemic Openness / Coverage
-
-```text
-UNCERTAINTY WITHIN REPRESENTED OPTIONS
-≠
-ADEQUACY / COMPLETENESS OF THE REPRESENTED OPTION SPACE
-```
-
-Система может быть очень уверена среди тех вариантов, которые уже рассматривает,
-и всё равно не иметь оснований считать пространство вариантов полным.
-
-**Статус:** `REFINE / CROSSWALK` · не Coverage Module · не универсальный scalar.
-
-### 💎 2. Bounded Representation / Safe Candidate Access
-
-```text
-SOURCE ≠ LOSSY VIEW
-NOT REPRESENTED ≠ ABSENT
-NOT SURFACED AS CANDIDATE ≠ IRRELEVANT
-```
-
-Самый сильный residual risk — **candidate-space deformation**: lossy essence / summary
-может повлиять не только на описание материала, но и на то, попадёт ли важный X
-вообще в дальнейшее рассмотрение.
-
-```text
-SOURCE contains X
-→ lossy view omits X
-→ later task needs X
-→ X never enters candidate set
-→ evaluator never sees X
-```
-
-**Граница:** lossy view иногда может исключать внутри justified scoped contract,
-но omission не получает глобального значения «этого нет».
-
-### 🛑 3. Task-Bounded Sufficiency / Reason-Typed Stopping
-
-```text
-STOP ≠ TRUTH ESTABLISHED
-STOP ≠ SEARCH EXHAUSTED
-JUSTIFIED STOP ≠ PERMANENT CLOSURE
-```
-
-Остановка может означать разные вещи: достаточно для задачи, поиск слишком дорог,
-источник недоступен, доступ запрещён, наступил deadline, uncertainty пока
-неустранима. Reason/status остановки не должен стираться.
-
-**Статус:** `MERGE / REFINE` · не Stopping Module · не универсальная MVT/VOI формула.
+The working name **Meaning Envelope** refers to this preservation discipline. It is **not** a required class, schema, table, service, or subsystem.
 
 ---
 
-## 🔗 Центральный synthesis
+## 🔬 Current research frontier
 
-> **Когнитивная система должна уметь действовать на основании неполного внутреннего
-> представления, не превращая ограничения собственного представления, поиска,
-> памяти или внутреннего состояния в свойства внешнего мира.**
+The full research wording lives in [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md) and [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md). This README intentionally keeps only a navigation-level summary to reduce wording drift.
 
-```text
-my model is confident      ≠ the world is well covered
-my summary omits X         ≠ the source lacks X
-I stopped searching        ≠ truth is established
-many agents agree          ≠ independent evidence multiplied
-I remember X clearly       ≠ I remember all relevant history
-old state remembered       ≠ old state current
-```
-
-`STATUS: STRONG STRUCTURAL SYNTHESIS · NOT NEW LAW`.
-
----
-
-## 🧬 Meaning Envelope
-
-Через compression, retrieval, reconstruction, summarization и transfer должны
-сохраняться — или явно маркироваться как потерянные — существенные различия:
-
-- **WHAT** · semantic role;
-- **SOURCE** · provenance / ownership;
-- **CONTEXT** · scope / conditions;
-- **TIME** · currentness;
-- **UNCERTAINTY** · UNKNOWN / declared loss;
-- **REVISION HISTORY**;
-- **AUTHORITY / CONSTRAINT**.
-
-Meaning Envelope — **discipline/checklist**, а не обязательный класс, schema,
-таблица, сервис или новая подсистема.
-
----
-
-## 🧭 Что открыть первым
-
-| Если вы… | Начните здесь |
+| Research family | Current disposition |
 |---|---|
-| 👤 впервые видите CLOS | этот README → [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md) |
-| 🔍 проверяете текущие claims | [`docs/CURRENT_STATUS.md`](docs/CURRENT_STATUS.md) + [`docs/EVIDENCE_LEDGER.md`](docs/EVIDENCE_LEDGER.md) |
-| 🧪 хотите сломать гипотезу | [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md) |
-| 🧠 изучаете последний research cycle | [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md) |
-| 🗺️ смотрите место CLOS в Velantrim | [`docs/ECOSYSTEM_CROSSWALK.md`](docs/ECOSYSTEM_CROSSWALK.md) |
-| 🤖 AI coding/research agent | [`AGENTS.md`](AGENTS.md) |
+| 🌍 Coverage / possibility-space adequacy | `REFINE / CROSSWALK` |
+| 💎 Lossy representation / Safe Candidate Access | `REFINE / FIXTURE` |
+| 🛑 Reason-Typed Stopping / reopening | `MERGE / REFINE` |
+| 📍 Event Segmentation / ES-02 | `DISTINCT QUESTION · NOT ADOPTED AS PRIMITIVE` |
+
+A current structural synthesis candidate is:
+
+> **A cognitive system should be able to act on incomplete internal representations without silently converting limitations of its own representation, search, memory, or internal state into properties of the external world.**
+
+`STATUS: STRONG STRUCTURAL SYNTHESIS · NOT NEW LAW`
 
 ---
 
-## 🧾 Честная легенда статусов
+## 🧪 Research discipline
 
-| Метка | Значение |
-|---|---|
-| ✅ **existing distinction** | различие уже выражено и сохраняется |
-| 🟡 **function recognised** | функция важна, отдельный primitive не доказан |
-| 🔬 **research candidate** | есть distinct question / fixture, но gap ещё не установлен |
-| ❓ **open question** | механизм/обязательство не установлены |
-| 🧭 **taxonomy / crosswalk** | полезная карта, не law/module |
-| 🧪 **working method** | метод исследования, не cognitive primitive |
-| 🕰️ **historical** | сохранённая траектория, не current state |
-| 🚫 **rejected / downgraded** | формулировка отвергнута или понижена по evidence |
-
-```text
-файл существует
-≠ claim доказан
-≠ architecture adopted
-≠ implementation authorized
-≠ runtime enabled
-```
-
----
-
-## 🔬 Research discipline
-
-CLOS не максимизирует число модулей. Базовый цикл:
+CLOS does not optimize for the number of modules. The default process is:
 
 ```text
 DON'T INVENT
@@ -235,55 +119,31 @@ DON'T INVENT
 → ONLY THEN CONSIDER ARCHITECTURAL CHANGE
 ```
 
-Новый construct должен показать как минимум:
-
-1. distinct function;
-2. distinct state/transition consequence;
-3. non-expressibility через existing vocabulary;
-4. observable failure без него;
-5. falsifier;
-6. substrate-neutral usefulness;
-7. discriminating fixture.
-
 ```text
 REAL PHENOMENON ≠ ARCHITECTURAL GAP
-REAL GAP ≠ NEW PRIMITIVE
+REAL GAP ≠ NEW PRIMITIVE / MODULE / OWNER
 BIOLOGICAL ANALOGUE ≠ ARCHITECTURAL PROOF
 REPEATED ACROSS DOMAINS ≠ UNIVERSAL LAW
+FIXTURE PRESENT ≠ FIXTURE DISCRIMINATING
 ```
 
----
-
-## 🧪 Текущий fixture frontier
-
-| ID | Проверка | Основной риск |
-|---|---|---|
-| F1 | Missing Hypothesis | confidence внутри неполного option space |
-| F2 | Hidden Exception | lossy summary превращает omission в pseudo-absence |
-| F3 | Same Stop / Different Reason | разные STOP основания схлопываются |
-| F4 | Endogenous Confidence | fluency/repetition становится fake evidence |
-| F5 | Correction Precedence | старое X воскресает после correction Y |
-| F6 | Source Ownership | system interpretation превращается в user belief |
-| F7 | Historical vs Current | remembered old state становится current |
-| F8 | Semantic Reversion | research/rejected/historical item повышается до adopted |
-| ES-02 | One stream / two valid task lenses | event segmentation теряет alternatives/history |
-
-Подробнее: [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md).
+The active fixture packet is maintained in [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md), including F1–F8 and ES-02.
 
 ---
 
-## 🧩 CLOS и экосистема Velantrim
+## 🧩 Relationship to the Velantrim ecosystem
 
-CLOS — отдельный **research blueprint**, но не новый sovereign над существующими
-проектами.
+CLOS is a dedicated **research surface**, not a seventh sovereign owner.
 
-| Проект | Роль относительно CLOS |
+Project-local responsibilities remain with the existing projects:
+
+| Project | Project-local responsibility |
 |---|---|
 | 💠 **Crystal** | memory / evidence / provenance / Canon admission |
 | 🗿 **Titan** | orchestration / tools / runtime realization |
 | 🧬 **Native Kernel** | substrate-neutral semantic / epistemic-history invariants |
 | 🌀 **Mentaury Soul** | cognition / beliefs / self / identity-domain semantics |
-| 🌎 **Continuum** | process continuity / handoff / restart / currentness |
+| 🌎 **Continuum** | process continuity / handoff / currentness |
 | 🪁 **Mentaury-Kernel** | cross-domain composition invariants |
 
 ```text
@@ -294,30 +154,45 @@ CLOS RESULT
 ≠ PRODUCTION AUTHORITY
 ```
 
-Подробнее: [`docs/ECOSYSTEM_CROSSWALK.md`](docs/ECOSYSTEM_CROSSWALK.md).
+See [`docs/ECOSYSTEM_CROSSWALK.md`](docs/ECOSYSTEM_CROSSWALK.md) for the owner-specific transfer rule.
 
 ---
 
-## 🛡️ Что CLOS не обещает
+## 🧭 Where to start
 
-- ❌ готовую универсальную теорию cognition;
-- ❌ доказательство consciousness / sentience / AGI;
-- ❌ что биологическая аналогия автоматически является digital architecture;
-- ❌ один универсальный graph/module layout;
-- ❌ универсальный `coverage score`;
-- ❌ entropy как truth signal;
-- ❌ universal economic STOP equation;
-- ❌ обязательный RAG / GraphRAG / vector DB / SQL / Neo4j;
-- ❌ что consensus нескольких AI является независимым evidence;
-- ❌ что research result автоматически разрешает implementation/runtime.
+| If you are… | Start here |
+|---|---|
+| 👤 new to CLOS | this README → [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md) |
+| 🔍 checking current claims/status | [`docs/CURRENT_STATUS.md`](docs/CURRENT_STATUS.md) + [`docs/EVIDENCE_LEDGER.md`](docs/EVIDENCE_LEDGER.md) |
+| 🧪 trying to falsify a hypothesis | [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md) |
+| 🧠 reviewing the latest research cycle | [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md) |
+| 🗺️ checking ecosystem ownership | [`docs/ECOSYSTEM_CROSSWALK.md`](docs/ECOSYSTEM_CROSSWALK.md) |
+| 🤖 an AI coding/research agent | [`AGENTS.md`](AGENTS.md) |
+| 🇷🇺 reading in Russian | [`README.ru.md`](README.ru.md) |
 
 ---
 
-## 📚 Документация проекта
+## 🛡️ What CLOS does not claim
+
+- ❌ a finished universal theory of cognition;
+- ❌ proof of consciousness, sentience, or AGI;
+- ❌ that biological analogies automatically define digital architecture;
+- ❌ one universal module graph or implementation stack;
+- ❌ a universal `coverage score`;
+- ❌ entropy as a truth signal;
+- ❌ a universal economic STOP equation;
+- ❌ mandatory RAG, GraphRAG, vector DB, SQL, Neo4j, or any provider;
+- ❌ that agreement between multiple AI reports equals independent evidence;
+- ❌ that a research result automatically authorizes implementation or runtime.
+
+---
+
+## 📚 Repository map
 
 ```text
 .
 ├── README.md
+├── README.ru.md
 ├── AGENTS.md
 └── docs/
     ├── CURRENT_STATUS.md
@@ -329,11 +204,11 @@ CLOS RESULT
     └── RESEARCH_SURFACES.md
 ```
 
-### Роли поверхностей
+Documentation roles:
 
 - **GitHub** — versioned portable research documentation + reviewable diffs;
-- **Notion: ⚗️ Velantrim Cognitive Life OS 📖** — live current research wording;
-- **Google Docs: ⚗️ Velantrim Cognitive Life OS 📖** — detailed rationale, commentary и history.
+- **Notion · ⚗️ Velantrim Cognitive Life OS 📖** — live current research wording / active checkpoint;
+- **Google Docs · ⚗️ Velantrim Cognitive Life OS 📖** — detailed rationale, commentary, and research history.
 
 ```text
 CURRENT ARCHITECTURE ≠ RESEARCH ARCHIVE
@@ -345,15 +220,15 @@ HISTORY ≠ CURRENT STATE
 
 ## 🎯 Current next gate
 
-**Не делать новый широкий literature sweep по умолчанию.**
+Do **not** start another broad literature sweep by default.
 
-Сейчас highest-information work:
+Current high-information work is:
 
-1. live crosswalk Coverage / candidate access / stopping;
+1. live crosswalk for Coverage / candidate access / stopping;
 2. F1–F4 bounded fixtures;
-3. ES-02 event segmentation fixture;
-4. `NO NEW CONSTRUCT` там, где existing vocabulary уже достаточно;
-5. только repeated non-expressibility может оправдать новый candidate.
+3. ES-02 event-segmentation fixture;
+4. `NO NEW CONSTRUCT` where existing vocabulary already preserves the required distinction;
+5. only repeated non-expressibility may justify a new candidate.
 
 ---
 
@@ -368,5 +243,4 @@ CI green ≠ semantic proof
 AI review ≠ independent human assurance
 ```
 
-CLOS может стать сильнее только если его claims выдерживают crosswalk,
-counterexamples и bounded falsification — не потому, что README выглядит убедительно.
+CLOS becomes stronger only when its claims survive crosswalks, counterexamples, and bounded falsification — not because the README sounds convincing.
