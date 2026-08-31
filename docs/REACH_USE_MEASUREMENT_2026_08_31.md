@@ -148,7 +148,9 @@ Purpose: reduce the confound where a correct answer is produced from prior model
 
 ## 6. Falsifiers / downgrade conditions
 
-Downgrade or close this research line if bounded fixtures show that existing owners already expose sufficient stage provenance and no material semantic error occurs from collapsing later stages for the relevant task class.
+Downgrade or close this research line if bounded fixtures show that existing owners already expose sufficient stage provenance and attribution evidence for the relevant task class, so that no new attribution mechanism or construct is justified.
+
+This downgrade does **not** mean that distinct stages become equivalent. It means the existing owner-local signals are sufficient for the scoped task without architecture expansion.
 
 Likewise, do not promote a universal attribution mechanism unless repeated evidence shows that a simpler owner-local contract is insufficient.
 
