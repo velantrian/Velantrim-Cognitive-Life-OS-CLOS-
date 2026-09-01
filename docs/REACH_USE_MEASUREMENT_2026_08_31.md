@@ -146,7 +146,25 @@ Use synthetic or freshly generated task-local facts that the model cannot plausi
 
 Purpose: reduce the confound where a correct answer is produced from prior model knowledge rather than supplied evidence.
 
-## 6. Falsifiers / downgrade conditions
+## 6. What does not count as proof of use
+
+By itself, none of the following establishes semantic use or answer support:
+
+```text
+retrieval rank
+prompt presence
+attention-like salience
+model self-report
+post-hoc citation generation
+final-answer correctness
+trace membership populated from retrieved facts
+```
+
+These may be useful signals or instrumentation, but stronger `U` / `A` claims require stronger evidence.
+
+If exact semantic use cannot be established, report only the strongest directly observed stage (`RETRIEVED`, `SERIALIZED`, or `TRANSMITTED`) rather than inventing `USED` or `ANSWER-SUPPORTING`.
+
+## 7. Falsifiers / downgrade conditions
 
 Downgrade or close this research line if bounded fixtures show that existing owners already expose sufficient stage provenance and attribution evidence for the relevant task class, so that no new attribution mechanism or construct is justified.
 
@@ -154,7 +172,7 @@ This downgrade does **not** mean that distinct stages become equivalent. It mean
 
 Likewise, do not promote a universal attribution mechanism unless repeated evidence shows that a simpler owner-local contract is insufficient.
 
-## 7. Owner boundary
+## 8. Owner boundary
 
 ### Cognitive OS
 
@@ -172,7 +190,7 @@ May later host bounded implementation tests because current evidence localized c
 
 No change is required from this finding alone.
 
-## 8. Anti-drift rule
+## 9. Anti-drift rule
 
 ```text
 REAL MEASUREMENT GAP
