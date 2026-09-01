@@ -9,6 +9,88 @@ Purpose: preserve claim → evidence → limitation → disposition traceability
 
 This ledger is deliberately smaller than the full research history in Notion / Google Docs. It records the evidence needed to understand why the current CLOS research families survived, what that evidence does **not** prove, and how the result is currently classified.
 
+## 2026-09-01 live owner-verification addendum
+
+This addendum supersedes older fixture-order wording below where the two conflict. It records live owner evidence, not new architecture.
+
+### 💠 Crystal bounded Phase-0 closure
+
+Verified baseline: `velantrian/velantrim-exocortex-crystal@7509be14c274cdc83e8e00287f46a78f8ee33696`.
+
+| Boundary | Current evidence status | Does **not** prove |
+|---|---|---|
+| `SOURCE → REPRESENTATION COVERAGE` | `NOT_ESTABLISHED` | That omitted material is absent from the source, or that a new subsystem is required |
+| `LOCATOR → EXACT SOURCE REPLAY` | `IMPLEMENTED + TESTED` | That downstream reasoning actually used the replayed detail |
+| `VERSION → STALE / HISTORICAL PRESERVATION` | `IMPLEMENTED + TESTED` | Full natural-language current-vs-historical resolution |
+| `CANDIDATE → RELATION DISCRIMINATION` | `IMPLEMENTED + MEASURED GAP` | Truth adjudication or safe decision authority |
+| `NEEDS_REVIEW → BOUNDED REREAD` | `IMPLEMENTED + TESTED` | A later task will know when an older compact view is insufficient |
+| `CRYSTAL → AUTHORITY FIREWALL` | `EXPLICIT / IMPLEMENTED + LOCAL TEST COVERAGE` | System-wide production authorization |
+
+Disposition: `CRYSTAL PHASE-0 BOUNDED REVIEW CLOSED`.
+
+Closure means the owner boundary is localized. It does **not** mean all memory questions are solved. Broad Crystal auditing should stop unless a concrete evidence question returns ownership there.
+
+### 🗿 Titan evidence-use localization
+
+Verified baseline: `velantrian/Velantrim-ExoCortex-Titan@78be30a89eb0ad698af1f4f3884db6728d076c06`.
+
+Current measurement vocabulary:
+
+```text
+R = retrieved
+S = serialized
+T = transmitted
+U = demonstrably used
+A = demonstrably answer-supporting
+```
+
+Bounded evidence:
+
+- PR #426 / merge commit `43d03e02339ea820ade009ef552bd8f24615f76f`: bounded `R/S/T` measurement path;
+- `R → S` is established for the measured path;
+- `S → T` can be lossy under provider/message packing;
+- PR #427 / Titan `main@78be30a89eb0ad698af1f4f3884db6728d076c06`: negative-authority fixture showing `source_fact_ids` / trace membership alone does not establish U or A;
+- `T → U` remains `NOT_ESTABLISHED`;
+- `U → A` remains `NOT_ESTABLISHED`.
+
+```text
+TRACE MEMBERSHIP ≠ SEMANTIC USE
+SEMANTIC USE ≠ ANSWER SUPPORT
+ANSWER SUPPORT ≠ DECISION AUTHORITY
+```
+
+Disposition: `MEASUREMENT / LOCALIZATION GAP · NO ATTRIBUTION ENGINE`.
+
+### 🔁 Later-task sufficiency / reopen boundary
+
+Live owner reading establishes:
+
+```text
+REOPEN CAPABILITY = IMPLEMENTED
+SAME-RUN REOPEN POLICY = IMPLEMENTED
+LATER-TASK REOPEN POLICY = NOT_ESTABLISHED
+```
+
+The highest-information residual is therefore not whether the system can reread, but whether a genuinely later task can recognize that an older compact representation is no longer sufficient and recover/reopen the correct source/version/span.
+
+```text
+T1 SUFFICIENT ≠ T2 SUFFICIENT
+REOPEN CAPABILITY ≠ REOPEN POLICY
+SAME-RUN REOPEN POLICY ≠ LATER-TASK REOPEN POLICY
+```
+
+Current next gate: exactly one **bounded read-only Titan localization pass** for any already-existing later-task / cross-session reuse + reopen path.
+
+`F2 Hidden Exception` remains a candidate fixture only if that localization does not already resolve the boundary. F2 is **not authorized for creation or execution** by this ledger update.
+
+If an existing path already preserves the distinction:
+
+`DOCUMENT EVIDENCE → NO CHANGE → NO NEW CONSTRUCT → STOP`.
+
+If not established, classify `TEST GAP` or `CONTRACT GAP` first. Do not infer an implementation gap automatically.
+
+---
+
 ## Evidence classes
 
 ```text
@@ -88,11 +170,11 @@ LOSSY OMISSION MUST NOT SILENTLY BECOME GLOBAL NEGATIVE EVIDENCE.
 DECLARED LOSS ≠ COMPLETE KNOWLEDGE OF EVERYTHING OMITTED.
 ```
 
-Disposition: `STRONGEST MATERIAL RESIDUAL CANDIDATE · REFINE / FIXTURE`.
+Disposition after live owner verification: `GENUINE RESIDUAL QUESTION · SOURCE→REPRESENTATION COVERAGE NOT_ESTABLISHED · LATER-TASK REOPEN POLICY NOT_ESTABLISHED · NO NEW CONSTRUCT`.
 
 ### Falsifier / downgrade condition
 
-If F2 Hidden Exception is handled entirely by existing Meaning Envelope, source lineage, currentness and UNKNOWN semantics, disposition becomes `MERGE / NO NEW CONSTRUCT`.
+First inspect the existing Titan later-task / cross-session reuse + reopen path. If existing owner mechanisms preserve the distinction without material semantic loss, disposition becomes `MERGE / NO CHANGE / NO NEW CONSTRUCT`. Only if the boundary remains unestablished after localization may F2 be considered as a separately authorized discriminating fixture.
 
 ---
 
@@ -210,6 +292,7 @@ Disposition: `FIXTURE SOURCE / CONTINUITY EVIDENCE`, not a new module.
 | Implicit Memory Module | Phenomenon may be existing adaptive/policy/state semantics |
 | Entropy as truth/coverage/stopping authority | Entropy can fall while epistemic quality worsens |
 | Physarum/plant adaptation proves cognition | Adaptation/history dependence does not establish cognition |
+| Universal evidence-attribution service | Current Titan evidence localizes U/A as a measurement gap, not a new authority or architecture requirement |
 
 ---
 
