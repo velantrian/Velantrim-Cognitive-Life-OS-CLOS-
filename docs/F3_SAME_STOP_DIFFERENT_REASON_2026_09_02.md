@@ -1,7 +1,7 @@
 # 🛑 F3 — Same Stop / Different Reason
 
 ```text
-Status: BOUNDED DISCRIMINATING RESEARCH PACKET
+Status: BOUNDED RESEARCH EVIDENCE CLOSED AT CURRENT FRONTIER
 Date: 2026-09-02
 Canon: NO
 Implementation authorization: NONE
@@ -11,169 +11,130 @@ Production authorization: NONE
 
 ## 1. Research question
 
-Can the system preserve materially different reasons for the same outward termination state without collapsing them into one generic `STOP` / `sufficient=true` meaning?
-
-Target distinction:
+Can materially different termination bases survive behind the same outward STOP / non-continuation result without being collapsed into one generic `STOP` or `sufficient=true` meaning?
 
 ```text
 VISIBLE STOP
 ≠
-REASON / STATUS OF TERMINATION
+MATERIAL STOP BASIS
 ```
 
-The same outward non-continuation may arise because:
+The original six-case fixture distinguished:
 
-- the current task is sufficiently answered;
-- resources are exhausted;
-- the required source is unavailable;
-- authority prohibits further action/search;
-- a deadline has been reached;
-- uncertainty is currently irreducible.
+- task sufficiency;
+- resource exhaustion;
+- source unavailable;
+- authority prohibition;
+- deadline / time budget;
+- irreducible uncertainty.
 
-These reasons are not interchangeable because they imply different epistemic language, reopening conditions, and action consequences.
+The purpose was discriminating measurement, not creation of a universal stop ontology.
 
-## 2. Null hypothesis / current coverage
+## 2. Bounded owner-local evidence
 
-Live owner code inspection found substantial **local reason preservation**, especially in Titan, where multiple independently scoped results and gates expose `reason_code` fields.
+After this fixture was defined, Titan ran a sequence of owner-local probes against existing paths. No universal `StopReason`, `StopReceipt`, scheduler, retry engine, or new authority surface was introduced.
 
-Examples include policy/gate decisions, runtime evidence, Reader/reopen results, continuity event ports, and model-free results.
+### Titan PR #437 — model-free same-outward failure basis
 
-This establishes only:
+Observed on one existing model-free path:
 
 ```text
-LOCAL COMPONENT CAN RECORD A REASON
+SAME OUTWARD INSUFFICIENT ANSWER
+≠
+SAME FAILURE BASIS
 ```
 
-It does **not** establish:
+Distinct existing bases included local retrieval absence, guardian rejection, truth-gate rejection, and causal-graph read failure.
+
+Result ceiling:
 
 ```text
-SAME OUTWARD STOP
-→ MATERIAL STOP BASIS PRESERVED END-TO-END
-→ DOWNSTREAM EPISTEMIC STATUS DIFFERS
-→ REOPEN CONDITIONS DIFFERS
-→ ACTION AUTHORITY IMPLICATIONS DIFFERS
+MODEL-FREE BASIS PRESERVATION = OBSERVED
+FULL F3 = NOT_ESTABLISHED
+NEW PRIMITIVE = NOT_JUSTIFIED
 ```
 
-No universal `termination_reason`, `stop_basis`, or equivalent cross-owner primitive was established by the bounded search.
+### Titan PR #438 — UNKNOWN basis and release conditions
 
-Therefore the null hypothesis is:
-
-> Existing owner-local status/reason vocabulary may already be sufficient; F3 should first test semantic preservation before proposing any new construct.
-
-## 3. Controlled paired fixture
-
-Hold the outward response constant:
+Observed on the existing later-task reopen planner:
 
 ```text
-STOP / DO NOT CONTINUE NOW
+SAME OUTWARD UNKNOWN / NO TARGETS
+≠
+SAME MATERIAL STOP BASIS
 ```
 
-Vary only the material basis.
+Controlled existing bases included missing explicit claim selection, missing unsupported-claim signal, and insufficient reopen budget. Releasing the named condition changed the planner result to READY.
 
-### Case A — Task sufficiency
-
-The requested informational task has enough support for its stated scope.
-
-Expected implications:
-
-- epistemic wording may be positively sufficient **for this task/scope**;
-- reopening is optional and task-change dependent;
-- no implication that all search space is exhausted;
-- no automatic action authority follows.
-
-### Case B — Resource exhaustion
-
-The task is not established as sufficient, but the allocated search/compute budget is exhausted.
-
-Expected implications:
-
-- do not report epistemic sufficiency merely because work stopped;
-- reopening is justified when new budget becomes available;
-- downstream should preserve incomplete/unfinished status.
-
-### Case C — Source unavailable
-
-A material source cannot currently be accessed.
-
-Expected implications:
-
-- unresolved evidence need remains explicit;
-- absence of source access is not negative evidence about source content;
-- reopening condition is source availability/restoration.
-
-### Case D — Authority prohibition
-
-Further search/action would exceed permission or authority.
-
-Expected implications:
-
-- STOP is normative/authorization-bounded, not epistemic closure;
-- additional evidence could exist and still remain inaccessible/unauthorized;
-- reopening requires authority change, not confidence change.
-
-### Case E — Deadline
-
-A temporal deadline forces termination before epistemic completion.
-
-Expected implications:
-
-- time-bounded incompleteness remains explicit;
-- reopening becomes valid after/under a new time budget or task instance;
-- deadline must not silently become `sufficient=true`.
-
-### Case F — Irreducible uncertainty
-
-Available evidence has been exhausted within the bounded scope, but the result remains genuinely unresolved.
-
-Expected implications:
-
-- `UNKNOWN` / unresolved status remains valid;
-- more of the same search is not automatically justified;
-- reopening should require materially new evidence/question/conditions, not merely another identical loop.
-
-## 4. Discriminating observation
-
-The fixture passes only if the six cases can share the same outward stop decision while preserving materially different downstream semantics.
-
-At minimum observe whether each case preserves:
-
-1. **stop basis / reason**;
-2. **epistemic status**;
-3. **what the STOP does not prove**;
-4. **reopen condition**;
-5. **action/authority consequence**.
-
-A useful result shape for the research fixture may be represented in the test/report itself as:
+Result ceiling:
 
 ```text
-OUTWARD = STOP
-BASIS = <case-specific>
-EPISTEMIC_STATUS = <case-specific>
-REOPEN_WHEN = <case-specific>
-AUTHORITY_EFFECT = <case-specific>
+LATER-TASK UNKNOWN BASIS PRESERVATION = OBSERVED
+DISTINCT RELEASE CONDITIONS = OBSERVED
+FULL F3 = NOT_ESTABLISHED
+NEW PRIMITIVE = NOT_JUSTIFIED
 ```
 
-This is **measurement vocabulary only**, not a required runtime schema or new class.
+### Titan PR #439 — admission authority / quality / freshness
 
-## 5. PASS / FAIL / UNKNOWN
-
-### PASS
-
-All cases preserve distinct material basis and produce appropriately distinct epistemic/reopen/authority interpretations, using existing owner vocabulary without material semantic loss.
-
-Disposition:
+Observed on the existing Continuity admission evaluator:
 
 ```text
-MERGE INTO EXISTING SEMANTICS
-→ NO NEW CONSTRUCT
+SAME OUTWARD NO-ADMISSION
+≠
+SAME STOP BASIS
 ```
 
-### FAIL
+Distinct existing bases:
 
-At least two materially different cases collapse into the same semantics in a way that changes downstream meaning, for example:
+- current authorization not active;
+- confidence below minimum;
+- draft stale.
+
+Each retained its own reason code and its own bounded release condition while `no_runtime_authority` remained true.
 
 ```text
-RESOURCE EXHAUSTED
+AUTHORITY STOP
+≠ EVIDENCE-QUALITY STOP
+≠ DRAFT-FRESHNESS STOP
+```
+
+### Titan PR #440 — time-budget basis
+
+Observed on the existing startup-recovery receipt path while holding the outward observation and unresolved count fixed:
+
+```text
+OBSERVED_NONZERO + SAME unresolved_count
+```
+
+Distinct existing bases remained:
+
+- `time_budget_exhausted`;
+- `recovery_work_remaining`.
+
+Therefore:
+
+```text
+TIME-BUDGET STOP
+≠
+ORDINARY REMAINING WORK
+```
+
+## 3. What is supported
+
+The bounded evidence supports the phenomenon that the same outward non-continuation result can preserve materially different local stop bases, and that at least some different bases imply different release conditions.
+
+```text
+SAME OUTWARD RESULT ≠ SAME MATERIAL STOP BASIS
+DIFFERENT STOP BASIS MAY REQUIRE DIFFERENT RELEASE CONDITION
+AUTHORITY STOP ≠ EVIDENCE-QUALITY STOP ≠ FRESHNESS STOP
+TIME-BUDGET EXHAUSTION ≠ ORDINARY REMAINING WORK
+```
+
+This is enough to reject silent semantic collapse such as:
+
+```text
+RESOURCE / TIME BUDGET EXHAUSTED
 → sufficient=true
 ```
 
@@ -181,41 +142,63 @@ or:
 
 ```text
 AUTHORITY PROHIBITION
-→ truth/epistemic closure
+→ epistemic closure
 ```
 
-or:
+## 4. Explicit evidence ceiling
+
+The current bounded probes do **not** establish:
 
 ```text
-SOURCE UNAVAILABLE
-→ source content treated as absent
+TASK-CONDITIONED SUFFICIENCY AS AN EXISTING OWNER-LOCAL STOP CONTRACT
+IRREDUCIBLE-UNCERTAINTY STOP AS AN EXISTING OWNER-LOCAL STOP CONTRACT
+UNIVERSAL SOURCE-UNAVAILABLE STOP SEMANTICS
+UNIVERSAL CROSS-OWNER F3 CONTRACT
+UNIVERSAL StopReason / StopReceipt ONTOLOGY
+AUTOMATIC RETRY / REOPEN / RESUME POLICY
+ACTION OR DECISION AUTHORITY CONSEQUENCES
+FULL F3 END-TO-END COMPLETION
 ```
 
-A FAIL proves only a **localized semantic preservation gap**. It does not prove that a new primitive/module is required.
+Important non-equivalences remain:
+
+```text
+DRAFT_STALE ≠ DEADLINE/TIME-BUDGET EXHAUSTED ≠ RESOURCE EXHAUSTED
+ADMITTED DRAFT ≠ RUNTIME AUTHORITY ≠ ACTION AUTHORIZATION
+NOT OBSERVABLE ≠ COLLAPSED
+```
+
+## 5. PASS / FAIL / UNKNOWN interpretation
+
+### Bounded PASS
+
+A tested owner-local path preserves materially different bases behind the same outward state and does not silently promote stopping into epistemic sufficiency or authority.
+
+### Local FAIL
+
+A concrete path collapses materially different bases in a way that changes downstream meaning.
+
+A FAIL proves only a localized semantic-preservation gap. It does not by itself justify a new primitive or module.
 
 ### UNKNOWN / INDETERMINATE
 
-Use `UNKNOWN` when the tested owner path does not expose enough downstream state to determine whether material distinctions survive.
+Use `UNKNOWN` when a path does not expose enough state to determine whether the distinction survives.
 
-`NOT OBSERVABLE ≠ COLLAPSED`.
+```text
+NOT OBSERVABLE ≠ COLLAPSED
+```
 
-## 6. Falsifier / downgrade condition
+## 6. Ownership boundary
 
-Downgrade F3 to `NO NEW CONSTRUCT` if existing project-local structures can encode all material distinctions and a bounded fixture demonstrates that the meanings remain distinct through the relevant handoff/path.
+F3 remains a CLOS research question, not an ownership transfer.
 
-A new construct is justified only if repeated bounded tests show material non-expressibility using existing owner semantics.
+Potential consequences remain owner-local:
 
-## 7. Ownership crosswalk
-
-F3 is a CLOS research question, not an ownership transfer.
-
-Potential owner-local consequences depend on where a failure is observed:
-
-- **Mentaury Soul** — cognition-domain sufficiency/inquiry/decision-state semantics;
-- **Titan** — runtime orchestration, resource/deadline/source/permission realization;
-- **Continuum** — preserving stop basis across handoff/restart/process continuation;
-- **Native Kernel** — only if a stable substrate-neutral semantic preservation invariant survives bounded tests;
-- **Mentaury-Kernel** — only if independently governed domains lose/corrupt stop semantics during composition.
+- **Mentaury Soul** — only for cognition-domain sufficiency/inquiry semantics if a concrete path exists;
+- **Titan** — orchestration, resource/time/source/permission realization where already owned;
+- **Continuum** — only for process-continuity preservation if a concrete handoff path exposes a loss;
+- **Native Kernel** — only if repeated evidence establishes a stable substrate-neutral invariant;
+- **Mentaury-Kernel** — only if composition across governed domains loses/corrupts the distinction.
 
 ```text
 F3 RESULT
@@ -225,31 +208,39 @@ F3 RESULT
 ≠ RUNTIME AUTHORIZATION
 ```
 
-## 8. Current live crosswalk result
-
-Bounded code search found many Titan-local `reason_code` surfaces, but no evidence sufficient to claim a universal end-to-end reason-typed STOP contract across the six F3 cases.
-
-Therefore current status is:
+## 7. Current disposition
 
 ```text
-PHENOMENON = PLAUSIBLE / MATERIAL
-EXISTING LOCAL REASON VOCABULARY = SUBSTANTIAL
-END-TO-END F3 PRESERVATION = NOT_ESTABLISHED
+F3 PHENOMENON = SUPPORTED
+OWNER-LOCAL BASIS PRESERVATION = OBSERVED ON MULTIPLE BOUNDED TITAN PATHS
+F3 UNIVERSAL ARCHITECTURAL GAP = NOT_ESTABLISHED
 NEW PRIMITIVE = NOT_JUSTIFIED
-NEXT STEP = BOUNDED FIXTURE AGAINST A CONCRETE OWNER PATH
+NEW OWNER = NOT_JUSTIFIED
+NEW RUNTIME LAYER = NOT_JUSTIFIED
+IMPLEMENTATION = STOP
 ```
 
-## 9. Safest next step
+The correct conclusion is not that F3 has become a universal architecture. The conclusion is that existing owner-local vocabulary already preserves several material distinctions, while the remaining cases have not shown a concrete failing owner path.
 
-Do not implement a new StopReason model yet.
+## 8. Reopen condition
 
-Select one concrete owner path that already has both:
+Do not continue implementation by default.
 
-- a visible stop/non-continuation result;
-- existing reason/status metadata.
+Resume F3 work only if a concrete existing owner-local path or failing use-case exposes a missing distinction for task-conditioned stopping, irreducible uncertainty, source unavailability, or another materially distinct basis.
 
-Run the paired F3 cases through that path and test whether the material basis survives into downstream interpretation.
+Then:
 
-If PASS: document `NO NEW CONSTRUCT` and stop.
+```text
+LOCALIZE EXACT FAILING ARROW
+→ TEST GAP?
+→ CONTRACT GAP?
+→ ONLY THEN IMPLEMENTATION GAP?
+```
 
-If FAIL: localize the exact failing arrow before considering code changes.
+Absent such evidence:
+
+```text
+DOCUMENT EVIDENCE
+→ NO NEW CONSTRUCT
+→ STOP
+```
