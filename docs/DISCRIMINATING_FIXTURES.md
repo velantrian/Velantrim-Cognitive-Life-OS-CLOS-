@@ -55,6 +55,10 @@ Produce the same outward STOP under:
 
 **FAIL:** all collapse to one undifferentiated `sufficient=true`.
 
+**Current status:** `BOUNDED RESEARCH PACKET DEFINED · END-TO-END PRESERVATION NOT_ESTABLISHED · NEW PRIMITIVE NOT_JUSTIFIED`.
+
+See [`F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md`](F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md) for the controlled cases, null hypothesis, ownership crosswalk, PASS/FAIL/UNKNOWN criteria, and safest next step.
+
 ## F4 — Endogenous Confidence
 
 **Target distinction:** internal confidence/coherence vs external evidential support.
