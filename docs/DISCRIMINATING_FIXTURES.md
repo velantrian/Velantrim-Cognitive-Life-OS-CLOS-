@@ -55,9 +55,11 @@ Produce the same outward STOP under:
 
 **FAIL:** all collapse to one undifferentiated `sufficient=true`.
 
-**Current status:** `BOUNDED RESEARCH PACKET DEFINED · END-TO-END PRESERVATION NOT_ESTABLISHED · NEW PRIMITIVE NOT_JUSTIFIED`.
+**Current status:** `BOUNDED OWNER-LOCAL EVIDENCE OBSERVED · UNIVERSAL F3 GAP NOT_ESTABLISHED · NEW PRIMITIVE NOT_JUSTIFIED · IMPLEMENTATION STOP`.
 
-See [`F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md`](F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md) for the controlled cases, null hypothesis, ownership crosswalk, PASS/FAIL/UNKNOWN criteria, and safest next step.
+Titan bounded probes #437–#440 observed materially distinct stop bases and, on selected paths, distinct release conditions without introducing a universal stop ontology. Task-conditioned sufficiency and irreducible-uncertainty owner-local stop contracts remain `NOT_ESTABLISHED`.
+
+See [`F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md`](F3_SAME_STOP_DIFFERENT_REASON_2026_09_02.md) for the evidence ceiling, owner-local observations, and reopen condition.
 
 ## F4 — Endogenous Confidence
 
