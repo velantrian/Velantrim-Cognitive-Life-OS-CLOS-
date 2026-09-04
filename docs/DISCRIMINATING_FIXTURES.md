@@ -71,6 +71,31 @@ Keep external evidence fixed while varying repetition, fluency, familiarity or d
 
 **FAIL:** repetition or copied consensus silently increases world-evidence status.
 
+## CA-01 / CASE E — History-Dependent Cognitive Availability
+
+**Target distinction:** observed focal content vs measurable history-conditioned influence vs identified mediating mechanism.
+
+Paired histories:
+- H1: structured prior exposure;
+- H0: matched control without the target structure.
+
+Run the same current task under:
+- no deliberate cue;
+- weak incidental cue;
+- explicit retrieval cue.
+
+Measure first candidate, candidate order, latency, accuracy/error, confidence and final choice **before** awareness probes. Then use free report, recognition, confidence and source judgment where applicable.
+
+**PASS:** any history effect remains scoped to the controlled histories and cue condition; `no report` is not converted into `no retrieval`; availability does not increase evidence status; an unavailable candidate is not treated as rejected; readiness does not bypass belief, goal adoption or authority.
+
+**FAIL:** a behavioural effect is declared proof of a specific hidden mechanism; speed/fluency becomes warrant; candidate omission becomes negative preference evidence; readiness directly authorizes action.
+
+**UNKNOWN:** no reproducible effect, insensitive awareness measurement, probe interference, observationally equivalent mechanisms, or insufficient run count.
+
+**Current status:** `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED · NO NEW PRIMITIVE`.
+
+Full evidence map, crosswalk and falsifier: [`COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md).
+
 ## F5 — Correction Precedence
 
 Sequence:
