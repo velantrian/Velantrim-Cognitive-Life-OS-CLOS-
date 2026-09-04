@@ -128,7 +128,7 @@ REPEATED ACROSS DOMAINS ≠ UNIVERSAL LAW
 FIXTURE PRESENT ≠ FIXTURE DISCRIMINATING
 ```
 
-The active fixture packet is maintained in [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md), including F1–F8 and ES-02.
+The active fixture packet is maintained in [`docs/DISCRIMINATING_FIXTURES.md`](docs/DISCRIMINATING_FIXTURES.md), including F1–F8, CA-01 / CASE E, and ES-02.
 
 ---
 
