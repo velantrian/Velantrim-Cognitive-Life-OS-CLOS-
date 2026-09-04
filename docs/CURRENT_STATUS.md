@@ -22,7 +22,7 @@ IMPLEMENTATION ≠ RUNTIME AUTHORIZATION
 CI GREEN ≠ SEMANTIC PROOF
 ```
 
-## 2. Current research frontier — 2026-09-02
+## 2. Current research frontier — 2026-09-04
 
 A bounded post-merge reconciliation localized the external-memory research line further. The result remains **contraction of uncertainty**, not architecture expansion.
 
@@ -35,7 +35,7 @@ A bounded post-merge reconciliation localized the external-memory research line 
 | 🛑 Reason-typed stopping | `SUBSTANTIAL EXISTING COVERAGE · MERGE / REFINE` | preserve material stop basis/status; no universal STOP equation |
 | ⚖️ Endogenous state vs world evidence | `MERGE / VERIFY` | internal signal is not external-world evidence by default |
 | ♻️ Retrieval / reconstruction / revision | `MERGE / REFINE EXISTING` | retrieval may participate in revision; retrieval ≠ revision |
-| 🧬 Past-dependent non-explicit state | `REAL PHENOMENON · GAP NOT ESTABLISHED` | crosswalk with adaptive state / Continuum / self-regulation |
+| 💭 History-dependent cognitive availability / CASE E | `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED` | run [`CA-01 / CASE E`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md); no Background Thought Engine or implicit-memory primitive |
 | 📍 Event Segmentation | `PARTIAL EXISTING COVERAGE · DISTINCT QUESTION · NOT ADOPTED AS PRIMITIVE` | ES-02 remains a bounded research candidate, not a new primitive |
 
 No new top-level cognitive module or memory organ is established by the current cycle.
@@ -183,7 +183,8 @@ What changed is narrower: Titan now has a bounded explicit planning + execution 
 2. **F2 — Hidden Exception** — **bounded owner-local fixture sequence executed; planning/execution capability established; full real query-path behaviour still not established**.
 3. **F3 — Same Stop / Different Reason** — same visible STOP, different material basis.
 4. **F4 — Endogenous Confidence** — same external evidence, changed fluency/repetition/consensus.
-5. **ES-02 — One stream / two valid task lenses** — test plural event segmentation without a new primitive.
+5. **CA-01 / CASE E — History-dependent Cognitive Availability** — same current task, matched histories and cue conditions; measure candidate order/latency/accuracy without inferring a hidden mechanism. See [`COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md).
+6. **ES-02 — One stream / two valid task lenses** — test plural event segmentation without a new primitive.
 
 Long-horizon continuity fixtures remain available as F5–F8.
 
@@ -289,4 +290,4 @@ Do not create by default:
 - new authority owner;
 - automatic answer attribution.
 
-The next justified work may instead move to another bounded research candidate such as F1, F3, F4 or ES-02.
+The next justified work may instead move to another bounded research candidate such as F1, F3, F4, CA-01 / CASE E or ES-02.
