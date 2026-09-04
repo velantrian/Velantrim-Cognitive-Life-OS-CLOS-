@@ -6,7 +6,7 @@
 >
 > **Maturity:** `ACTIVE RESEARCH BLUEPRINT · NOT FINAL CANON · NOT IMPLEMENTATION AUTHORIZATION · NOT RUNTIME AUTHORIZATION`
 
-[🗺️ Blueprint](docs/CLOS_BLUEPRINT.md) · [📊 Current status](docs/CURRENT_STATUS.md) · [🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) · [📚 Evidence ledger](docs/EVIDENCE_LEDGER.md) · [🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) · [🧭 Ecosystem crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
+[🗺️ Blueprint](docs/CLOS_BLUEPRINT.md) · [📊 Current status](docs/CURRENT_STATUS.md) · [🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) · [💭 Cognitive availability / CASE E](docs/COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md) · [📚 Evidence ledger](docs/EVIDENCE_LEDGER.md) · [🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) · [🧭 Ecosystem crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
 
 ---
 
@@ -93,6 +93,7 @@ The full research wording lives in [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRIN
 | 🌍 Coverage / possibility-space adequacy | `REFINE / CROSSWALK` |
 | 💎 Lossy representation / Safe Candidate Access | `REFINE / FIXTURE` |
 | 🛑 Reason-Typed Stopping / reopening | `MERGE / REFINE` |
+| 💭 History-dependent cognitive availability / CASE E | `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED` |
 | 📍 Event Segmentation / ES-02 | `DISTINCT QUESTION · NOT ADOPTED AS PRIMITIVE` |
 
 A current structural synthesis candidate is:
@@ -198,6 +199,7 @@ See [`docs/ECOSYSTEM_CROSSWALK.md`](docs/ECOSYSTEM_CROSSWALK.md) for the owner-s
     ├── CURRENT_STATUS.md
     ├── CLOS_BLUEPRINT.md
     ├── RESEARCH_SYNTHESIS_2026_08_29.md
+    ├── COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md
     ├── EVIDENCE_LEDGER.md
     ├── DISCRIMINATING_FIXTURES.md
     ├── ECOSYSTEM_CROSSWALK.md
@@ -226,9 +228,10 @@ Current high-information work is:
 
 1. live crosswalk for Coverage / candidate access / stopping;
 2. F1–F4 bounded fixtures;
-3. ES-02 event-segmentation fixture;
-4. `NO NEW CONSTRUCT` where existing vocabulary already preserves the required distinction;
-5. only repeated non-expressibility may justify a new candidate.
+3. CA-01 / CASE E history-dependent availability fixture;
+4. ES-02 event-segmentation fixture;
+5. `NO NEW CONSTRUCT` where existing vocabulary already preserves the required distinction;
+6. only repeated non-expressibility may justify a new candidate.
 
 ---
 
