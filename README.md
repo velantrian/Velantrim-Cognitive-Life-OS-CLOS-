@@ -86,7 +86,7 @@ The working name **Meaning Envelope** refers to this preservation discipline. It
 
 ## 🔬 Current research frontier
 
-The full research wording lives in [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md) and [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md). This README intentionally keeps only a navigation-level summary to reduce wording drift.
+The full research wording lives in [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md), [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md), and the bounded [`CASE E cognitive-availability reconciliation`](docs/COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md). This README intentionally keeps only a navigation-level summary to reduce wording drift.
 
 | Research family | Current disposition |
 |---|---|
