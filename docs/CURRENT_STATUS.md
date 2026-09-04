@@ -38,6 +38,8 @@ A bounded post-merge reconciliation localized the external-memory research line 
 | 💭 History-dependent cognitive availability / CASE E | `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED` | run [`CA-01 / CASE E`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md); no Background Thought Engine or implicit-memory primitive |
 | 📍 Event Segmentation | `PARTIAL EXISTING COVERAGE · DISTINCT QUESTION · NOT ADOPTED AS PRIMITIVE` | ES-02 remains a bounded research candidate, not a new primitive |
 
+CASE E refines the existing past-dependent-state research line. It is a bounded fixture candidate, not a fourth top-level research family and not a restart of broad research.
+
 No new top-level cognitive module or memory organ is established by the current cycle.
 
 ## 3. Crystal Phase-0 bounded closure
