@@ -128,6 +128,7 @@ Do not restart broad research by default. Current highest-information work is:
 - F2 Hidden Exception;
 - F3 Same Stop / Different Reason;
 - F4 Endogenous Confidence;
+- CA-01 / CASE E — bounded fixture for the existing past-dependent-state family; not a new broad research family;
 - ES-02 One stream / two valid task lenses.
 
 ## Ecosystem boundary
