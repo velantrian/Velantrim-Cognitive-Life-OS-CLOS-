@@ -6,7 +6,7 @@
 >
 > **Статус:** `ACTIVE RESEARCH BLUEPRINT · NOT FINAL CANON · NOT IMPLEMENTATION AUTHORIZATION · NOT RUNTIME AUTHORIZATION`
 
-[🗺️ Blueprint](docs/CLOS_BLUEPRINT.md) · [📊 Current status](docs/CURRENT_STATUS.md) · [🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) · [📚 Evidence](docs/EVIDENCE_LEDGER.md) · [🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) · [🧭 Crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
+[🗺️ Blueprint](docs/CLOS_BLUEPRINT.md) · [📊 Current status](docs/CURRENT_STATUS.md) · [🔬 Research synthesis](docs/RESEARCH_SYNTHESIS_2026_08_29.md) · [💭 Cognitive availability / CASE E](docs/COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md) · [📚 Evidence](docs/EVIDENCE_LEDGER.md) · [🧪 Fixtures](docs/DISCRIMINATING_FIXTURES.md) · [🧭 Crosswalk](docs/ECOSYSTEM_CROSSWALK.md)
 
 ---
 
@@ -77,6 +77,7 @@ model output ≠ Canon
 | 🌍 Coverage / possibility-space adequacy | `REFINE / CROSSWALK` |
 | 💎 Lossy representation / Safe Candidate Access | `REFINE / FIXTURE` |
 | 🛑 Reason-Typed Stopping / reopening | `MERGE / REFINE` |
+| 💭 History-dependent cognitive availability / CASE E | `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED` |
 | 📍 Event Segmentation / ES-02 | `DISTINCT QUESTION · NOT ADOPTED AS PRIMITIVE` |
 
 Общий structural synthesis остаётся research-level:
@@ -149,6 +150,6 @@ HISTORY ≠ CURRENT STATE
 
 ## 🎯 Следующий gate
 
-Не расширять архитектуру по умолчанию. Следующий high-information шаг — live crosswalk + bounded fixtures. Если existing vocabulary уже выражает требуемое поведение без material semantic loss, правильный результат:
+Не расширять архитектуру по умолчанию. Следующий high-information шаг — live crosswalk + bounded fixtures, включая [`CA-01 / CASE E`](docs/COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md). Если existing vocabulary уже выражает требуемое поведение без material semantic loss, правильный результат:
 
 `MERGE / REFINE EXISTING / NO NEW CONSTRUCT`.
