@@ -94,6 +94,8 @@ Measure first candidate, candidate order, latency, accuracy/error, confidence an
 
 **Current status:** `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED · NO NEW PRIMITIVE`.
 
+**Boundary vs F4:** F4 tests whether fluency, repetition or familiarity silently increases warrant. CA-01 additionally tests whether non-report is promoted to absence of retrieval and whether a history-conditioned effect is promoted to a specific hidden mechanism. CA-01 discriminates interpretation failures; it does not itself establish a residual architectural gap.
+
 Full evidence map, crosswalk and falsifier: [`COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md).
 
 ## F5 — Correction Precedence
