@@ -70,7 +70,7 @@ model output ≠ Canon
 
 ## 🔬 Текущий research frontier
 
-Подробная аргументация хранится в [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md) и [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md). README хранит только навигационный summary, чтобы не создавать несколько конкурирующих копий research wording.
+Подробная аргументация хранится в [`docs/CLOS_BLUEPRINT.md`](docs/CLOS_BLUEPRINT.md), [`docs/RESEARCH_SYNTHESIS_2026_08_29.md`](docs/RESEARCH_SYNTHESIS_2026_08_29.md) и bounded-сверке [`CASE E`](docs/COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md). README хранит только навигационный summary, чтобы не создавать несколько конкурирующих копий research wording.
 
 | Направление | Текущий статус |
 |---|---|
