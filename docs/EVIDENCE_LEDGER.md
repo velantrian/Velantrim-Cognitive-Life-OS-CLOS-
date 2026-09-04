@@ -244,13 +244,19 @@ Disposition: `MERGE / REFINE EXISTING MEMORY + REVISION`.
 
 ## 6. 🧬 Past-dependent state without explicit recall
 
+**Current alias:** `History-dependent cognitive availability / CASE E / CA-01`.
+
+These names refer to one research family. CASE E is the bounded evidence-and-fixture packet for this existing line; it does not supersede the ledger family or create a second residual question.
+
 | Source / family | Class | Supports | Does **not** prove |
 |---|---|---|---|
 | Declarative vs non-declarative memory literature | DIRECT SUPPORT for human/animal phenomenon | Behaviour can depend on history without explicit episodic recall | Need for a separate `Implicit Memory Module` |
 | Habituation/adaptive state in non-neural organisms | STRUCTURAL ANALOGUE | Persistent history-dependent response change need not look like explicit records | Conscious cognition or autobiographical memory |
 | Continual learning / learned policy / calibration state in machines | DIRECT SUPPORT for machine phenomenon | Parameters/policies/calibration can encode past dependence outside explicit records | Every material adaptive change must be individually logged |
 
-Disposition: `REAL PHENOMENON · GAP NOT ESTABLISHED · CROSSWALK REQUIRED`.
+Disposition: `REAL PHENOMENON · MECHANISM UNDERDETERMINED · GAP NOT ESTABLISHED · BOUNDED FIXTURE / CROSSWALK REQUIRED`.
+
+Evidence map, limitations, falsifier and CA-01 protocol: [`COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md).
 
 ---
 
