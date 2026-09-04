@@ -54,6 +54,8 @@ The substrate-neutral research name used in this packet is **history-dependent c
 
 These families can interact, but a shared behavioural outcome does not prove a shared mechanism.
 
+**CA-01 scope:** the fixture below operationalizes the latent-influence subcase. Unbidden focal content and offline reorganization remain adjacent evidence families; CA-01 does not test or settle them.
+
 ## 3. Evidence map
 
 | Source / family | Evidence class | Supports | Does **not** prove |
@@ -212,7 +214,7 @@ ZERO NEW WORLD-RELEVANT EVIDENCE
 - changed readiness/order does not increase evidence status;
 - an unavailable candidate is not treated as rejected;
 - readiness does not directly create belief, goal, authorization or action;
-- the result can be expressed using existing state/attention/candidate/uncertainty vocabulary, or a concrete non-expressibility is identified.
+- the result is first tested against existing state/attention/candidate/uncertainty vocabulary; any claimed non-expressibility requires a separate residual-gap argument and discriminating fixture.
 
 ### FAIL
 
@@ -234,9 +236,9 @@ ZERO NEW WORLD-RELEVANT EVIDENCE
 
 Downgrade the CLOS relevance of this candidate if repeated, adequately powered and preregistered runs show no stable history-conditioned difference in any prespecified observable under the tested conditions. Even a positive result does not establish a new primitive if existing vocabulary preserves the material distinction.
 
-## 7. Ecosystem projection — proposal only
+## 7. Ecosystem crosswalk questions — not a work queue
 
-This document does not modify a sibling project. It only localizes where a later validated consequence might belong.
+This document does not modify a sibling project. It only localizes where a later validated consequence might belong. The table is not an implementation backlog, assignment, roadmap or authorization request.
 
 | Surface | Possible owner-local question | Not authorized by this document |
 |---|---|---|
@@ -259,7 +261,7 @@ CLOS RESULT
 
 ```text
 BACKGROUND INFLUENCE:
-EMPIRICALLY PLAUSIBLE AND OFTEN OBSERVABLE
+EMPIRICALLY SUPPORTED IN MULTIPLE BOUNDED PARADIGMS
 
 BACKGROUND THOUGHT:
 NOT NECESSARILY PRESENT
