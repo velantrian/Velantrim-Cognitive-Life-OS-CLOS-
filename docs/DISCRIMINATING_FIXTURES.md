@@ -39,6 +39,10 @@ Source contains dominant rule R and rare exception X. Derived essence preserves 
 
 **FAIL:** `X absent from essence` becomes `X absent from source`.
 
+**Current status:** `S→T BOUNDEDLY OBSERVED IN TITAN DEEPSEEK PACKING TEST PATH (TEST EVIDENCE · OWNER-LOCAL · PROVIDER/PATH-SPECIFIC) · T→U NOT_ESTABLISHED · U→A NOT_ESTABLISHED · UNIVERSAL TRANSPORT LAW NOT_ESTABLISHED · F2 END-TO-END NOT_ESTABLISHED · NEW PRIMITIVE NOT_JUSTIFIED`.
+
+Titan [PR #445](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/445) / merge `635d0d6c725db0c7a7df8cfb3ce059c0500a418f` is observed local test evidence only. It is a local packing fixture using Titan's real serializer, remote sanitization function, and DeepSeek packing function; it does not execute a real DeepSeek provider/API request. On the Titan DeepSeek packing test path, semantic loss across `S→T` is locally observed: a dominant rule may survive while a materially relevant exception is omitted. The fixture remains on Titan `main` at writing (`70bc34fecdcf0bae15bc2264445e31b87b79bf08`). This is not `U`, not `A`, not real-provider semantic-use proof, not integration evidence, not production authorization, and not runtime-remediation justification. Later-task reopen policy / real query-path behaviour remains `NOT_ESTABLISHED`.
+
 ## F3 — Same Stop / Different Reason
 
 **Target distinction:** visible STOP vs reason/status of termination.
