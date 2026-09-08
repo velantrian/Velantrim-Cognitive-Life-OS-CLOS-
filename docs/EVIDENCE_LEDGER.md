@@ -15,7 +15,7 @@ This addendum updates **currentness** only. It does **not** silently rewrite the
 
 ### What was observed
 
-Titan [PR #445](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/445) / merge commit `635d0d6c725db0c7a7df8cfb3ce059c0500a418f` is **observed local test evidence only**.
+Titan [PR #445](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/445) / merge commit `635d0d6c725db0c7a7df8cfb3ce059c0500a418f` is **observed local test evidence only**. It is a local packing fixture using Titan's real serializer, remote sanitization function, and DeepSeek packing function. It does **not** execute a real DeepSeek provider/API request.
 
 Verified at writing:
 
@@ -23,7 +23,7 @@ Verified at writing:
 - compare `635d0d6c...main`: `ahead_by=8`, `behind_by=0` — the #445 merge remains an ancestor of Titan `main`
 - fixture still present on Titan `main`: `tests/test_evidence_use_contract.py` → `test_f2_hidden_exception_can_be_lost_at_deepseek_transmission_boundary`
 
-On the tested Titan DeepSeek path:
+On the Titan DeepSeek packing test path:
 
 ```text
 S contains dominant Rule R + material Exception X
@@ -32,13 +32,13 @@ after sanitization / provider packing, T may retain R and omit X
 
 Preferred clarification:
 
-> On the tested Titan DeepSeek path, semantic loss across S→T is locally observed: a dominant rule may survive while a materially relevant exception is omitted.
+> On the Titan DeepSeek packing test path, semantic loss across S→T is locally observed: a dominant rule may survive while a materially relevant exception is omitted.
 
 Current measurement reading:
 
 ```text
 R→S ESTABLISHED FOR BOUNDED TITAN PATH
-S→T BOUNDEDLY OBSERVED ON TITAN DEEPSEEK PATH
+S→T BOUNDEDLY OBSERVED IN TITAN DEEPSEEK PACKING TEST PATH
      (TEST EVIDENCE · OWNER-LOCAL · PROVIDER/PATH-SPECIFIC)
 T→U NOT_ESTABLISHED
 U→A NOT_ESTABLISHED
