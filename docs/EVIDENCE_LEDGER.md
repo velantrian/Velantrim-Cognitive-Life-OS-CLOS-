@@ -9,6 +9,62 @@ Purpose: preserve claim → evidence → limitation → disposition traceability
 
 This ledger is deliberately smaller than the full research history in Notion / Google Docs. It records the evidence needed to understand why the current CLOS research families survived, what that evidence does **not** prove, and how the result is currently classified.
 
+## 2026-09-08 Titan #445 S→T currentness addendum
+
+This addendum updates **currentness** only. It does **not** silently rewrite the 2026-09-01 live owner-verification block below. Where they conflict, this dated addendum is the current reading of `S→T` and of whether an F2-shaped `S→T` probe has since been executed.
+
+### What was observed
+
+Titan [PR #445](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/445) / merge commit `635d0d6c725db0c7a7df8cfb3ce059c0500a418f` is **observed local test evidence only**.
+
+Verified at writing:
+
+- Titan `main@70bc34fecdcf0bae15bc2264445e31b87b79bf08`
+- compare `635d0d6c...main`: `ahead_by=8`, `behind_by=0` — the #445 merge remains an ancestor of Titan `main`
+- fixture still present on Titan `main`: `tests/test_evidence_use_contract.py` → `test_f2_hidden_exception_can_be_lost_at_deepseek_transmission_boundary`
+
+On the tested Titan DeepSeek path:
+
+```text
+S contains dominant Rule R + material Exception X
+after sanitization / provider packing, T may retain R and omit X
+```
+
+Preferred clarification:
+
+> On the tested Titan DeepSeek path, semantic loss across S→T is locally observed: a dominant rule may survive while a materially relevant exception is omitted.
+
+Current measurement reading:
+
+```text
+R→S ESTABLISHED FOR BOUNDED TITAN PATH
+S→T BOUNDEDLY OBSERVED ON TITAN DEEPSEEK PATH
+     (TEST EVIDENCE · OWNER-LOCAL · PROVIDER/PATH-SPECIFIC)
+T→U NOT_ESTABLISHED
+U→A NOT_ESTABLISHED
+```
+
+The 2026-09-01 phrasing "`S → T` can be lossy under provider/message packing" remains historically correct as a generic packing observation (#426). It is no longer the most precise **current** statement: the F2-shaped DeepSeek fixture in #445 locally observes that a dominant rule may survive while a materially relevant exception is omitted.
+
+The 2026-09-01 sentence that F2 was **not authorized for creation or execution by that ledger update** remains historically true of that dated update. It is not the current fact about later Titan work: an owner-local test-only F2-shaped `S→T` probe was later merged as #445. That does **not** authorize a new CLOS fixture, module, runtime change, or F2 end-to-end closure.
+
+### Authority ceiling
+
+```text
+OBSERVED LOCAL TEST EVIDENCE
+≠ UNIVERSAL TRANSPORT LAW
+≠ U
+≠ A
+≠ REAL-PROVIDER SEMANTIC-USE PROOF
+≠ INTEGRATION EVIDENCE
+≠ PRODUCTION AUTHORIZATION
+≠ RUNTIME REMEDIATION JUSTIFICATION
+```
+
+Disposition: `S→T CURRENTNESS BOUND TO TITAN #445 · MEASUREMENT / LOCALIZATION GAP UNCHANGED · NO ATTRIBUTION ENGINE · NO NEW CONSTRUCT`.
+
+---
+
 ## 2026-09-01 live owner-verification addendum
 
 This addendum supersedes older fixture-order wording below where the two conflict. It records live owner evidence, not new architecture.

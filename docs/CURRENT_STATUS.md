@@ -30,7 +30,7 @@ A bounded post-merge reconciliation localized the external-memory research line 
 |---|---|---|
 | 🌍 Coverage / possibility-space adequacy | `PARTIAL EXPLICIT COVERAGE · REFINE / CROSSWALK` | no Coverage Module; test whether existing uncertainty vocabulary is enough |
 | 💎 Source → representation coverage | `NOT_ESTABLISHED · GENUINE RESIDUAL QUESTION` | exact source addressability/replay does not prove that all task-material content entered the represented candidate space |
-| 🔬 Evidence-use stages `R/S/T/U/A` | `R→S ESTABLISHED FOR BOUNDED TITAN PATH · S→T POTENTIALLY LOSSY · T→U NOT_ESTABLISHED · U→A NOT_ESTABLISHED` | measurement/localization problem only; no attribution engine or new memory construct justified |
+| 🔬 Evidence-use stages `R/S/T/U/A` | `R→S ESTABLISHED FOR BOUNDED TITAN PATH · S→T BOUNDEDLY OBSERVED ON TITAN DEEPSEEK PATH (TEST EVIDENCE · OWNER-LOCAL · PROVIDER/PATH-SPECIFIC) · T→U NOT_ESTABLISHED · U→A NOT_ESTABLISHED` | measurement/localization problem only; no attribution engine or new memory construct justified |
 | 🔁 Task-conditioned reopening | `PLANNING CONTRACT IMPLEMENTED ON TITAN MAIN (#435) · BOUNDED EXACT-SPAN EXECUTION CAPABILITY IMPLEMENTED ON TITAN MAIN (#436) · REAL LATER-TASK POLICY / ANSWER-PATH WIRING NOT_ESTABLISHED · DURABLE CROSS-SESSION RECOVERY NOT_ESTABLISHED` | owner-local capability exists; no automatic relevance selector, query-path wiring, persistence subsystem or new authority is justified |
 | 🛑 Reason-typed stopping | `SUBSTANTIAL EXISTING COVERAGE · MERGE / REFINE` | preserve material stop basis/status; no universal STOP equation |
 | ⚖️ Endogenous state vs world evidence | `MERGE / VERIFY` | internal signal is not external-world evidence by default |
@@ -87,7 +87,7 @@ U != necessarily A
 Current Titan evidence:
 
 - PR #426 / merge commit `43d03e02339ea820ade009ef552bd8f24615f76f` established the bounded `R/S/T` measurement path;
-- provider/message packing demonstrates that `S → T` can be lossy;
+- Titan [PR #445](https://github.com/velantrian/Velantrim-ExoCortex-Titan/pull/445) / merge commit `635d0d6c725db0c7a7df8cfb3ce059c0500a418f` is observed local test evidence only. On the tested Titan DeepSeek path, semantic loss across `S→T` is locally observed: a dominant rule may survive while a materially relevant exception is omitted. The discriminating fixture remains on Titan `main` at writing (`70bc34fecdcf0bae15bc2264445e31b87b79bf08`; #445 is still an ancestor). This is owner-local · path-specific · test-only. It is not a universal transport law, not `U`, not `A`, not real-provider semantic-use proof, not integration evidence, not production authorization, and not a runtime-remediation justification;
 - PR #427 / Titan `main@78be30a89eb0ad698af1f4f3884db6728d076c06` provides a negative-authority fixture showing `source_fact_ids` membership is insufficient to establish `U` or `A`;
 - `T → U` remains `NOT_ESTABLISHED`;
 - `U → A` remains `NOT_ESTABLISHED`.
@@ -96,6 +96,12 @@ Current Titan evidence:
 TRACE MEMBERSHIP ≠ SEMANTIC USE
 SEMANTIC USE ≠ ANSWER SUPPORT
 ANSWER SUPPORT ≠ DECISION AUTHORITY
+S→T BOUNDED LOCAL OBSERVATION ON TITAN DEEPSEEK PATH
+≠ UNIVERSAL TRANSPORT LAW
+≠ SEMANTIC USE (U)
+≠ ANSWER SUPPORT (A)
+≠ PRODUCTION AUTHORIZATION
+≠ RUNTIME REMEDIATION JUSTIFICATION
 ```
 
 The result does not justify a universal attribution service.
