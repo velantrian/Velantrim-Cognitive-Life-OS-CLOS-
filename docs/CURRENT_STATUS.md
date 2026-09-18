@@ -316,7 +316,7 @@ NEW PRIMITIVE / MODULE / OWNER = NONE
 IMPLEMENTATION / RUNTIME AUTHORIZATION = NONE
 ```
 
-The next bounded line is interruption → resumption, discriminating `CONTENT` vs `GOAL` vs `CONTEXT` vs `RATIONALE / ORIENTATION-LIKE STATE` under matched-information and matched-format/budget controls.
+The next bounded line is interruption → resumption, discriminating `CONTENT` vs `GOAL` vs `CONTEXT` vs `RATIONALE` under matched non-target information and matched-format / budget controls. Any later `orientation-relevant` interpretation remains downstream synthesis, not an experimental factor or latent construct.
 
 `CONTENT CONTINUITY ≠ ORIENTATION CONTINUITY` remains a research synthesis until operationalized; it is not treated as an independently established empirical construct.
 
@@ -325,3 +325,36 @@ RESEARCH RESULT ≠ ARCHITECTURE CANON
 NATURE AS DONOR ≠ NATURE AS BLUEPRINT
 ARCHITECTURE CONSEQUENCE = NONE
 ```
+
+
+---
+
+## 13. IR-01 interruption/resumption discrimination preregistration — 2026-09-18
+
+A new bounded preregistration draft is recorded in
+[`IR_01_INTERRUPTION_RESUMPTION_DISCRIMINATION_PREREG_2026_09_18.md`](IR_01_INTERRUPTION_RESUMPTION_DISCRIMINATION_PREREG_2026_09_18.md).
+
+Purpose:
+
+```text
+After interruption, discriminate the contribution of:
+CONTENT
+GOAL
+CONTEXT
+RATIONALE
+
+under a fixed fixture world/reference state with matched non-target information and matched-format / budget controls.
+```
+
+This is a preregistration draft only.
+
+```text
+IR-01 PREREGISTRATION = DRAFT
+PILOT = NOT_AUTHORIZED
+EVIDENCE = NOT_AUTHORIZED
+EVIDENCE LOCK = NOT_CREATED
+NEW PRIMITIVE / MODULE / OWNER = NONE
+ARCHITECTURE CONSEQUENCE = NONE
+```
+
+IR-01 does not modify Continuum Experiment 0, does not constitute a TCE or EDCA pass, and does not assume that orientation is a unitary latent mechanism. The preregistration now requires an arm-invariant atomic proposition ledger, condition-blind model-visible packets, position counterbalancing, independent/blinded evaluation where possible, and a fail-closed Evidence Lock before any evidence run.
