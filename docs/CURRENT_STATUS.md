@@ -325,3 +325,36 @@ RESEARCH RESULT ≠ ARCHITECTURE CANON
 NATURE AS DONOR ≠ NATURE AS BLUEPRINT
 ARCHITECTURE CONSEQUENCE = NONE
 ```
+
+
+---
+
+## 13. IR-01 interruption/resumption discrimination preregistration — 2026-09-18
+
+A new bounded preregistration draft is recorded in
+[`IR_01_INTERRUPTION_RESUMPTION_DISCRIMINATION_PREREG_2026_09_18.md`](IR_01_INTERRUPTION_RESUMPTION_DISCRIMINATION_PREREG_2026_09_18.md).
+
+Purpose:
+
+```text
+After interruption, discriminate the contribution of:
+CONTENT
+GOAL
+CONTEXT
+RATIONALE / ORIENTATION-LIKE STATE
+
+under matched-information and matched-format / budget controls.
+```
+
+This is a preregistration draft only.
+
+```text
+IR-01 PREREGISTRATION = DRAFT
+PILOT = NOT_AUTHORIZED
+EVIDENCE = NOT_AUTHORIZED
+EVIDENCE LOCK = NOT_CREATED
+NEW PRIMITIVE / MODULE / OWNER = NONE
+ARCHITECTURE CONSEQUENCE = NONE
+```
+
+IR-01 does not modify Continuum Experiment 0, does not constitute a TCE or EDCA pass, and does not assume that orientation is a unitary latent mechanism.
