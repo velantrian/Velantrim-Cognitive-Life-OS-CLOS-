@@ -25,10 +25,16 @@ CONVERGENT FUNCTION ≠ SAME MECHANISM
 CAUSAL HISTORY ≠ EPISTEMIC HISTORY
 ```
 
-Empirically supported with boundaries:
+Bounded empirical effects already represented in the current CLOS evidence trail:
 
-- past history can alter retrievability, priority, sensitivity, control contribution, effective relations, and future sampling / behavior;
-- current state, current input, current goal, and current context modulate which consequences of the past matter now.
+- history can alter accessibility / retrievability, attentional priority, candidate order, latency, response bias, and later behavior under bounded conditions.
+
+Current local evidence classification and fixture framing are tracked in [`EVIDENCE_LEDGER.md`](EVIDENCE_LEDGER.md) and [`COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md`](COGNITIVE_AVAILABILITY_CASE_E_2026_09_04.md).
+
+Cross-domain synthesis — heterogeneous donor evidence classes, not one empirical mechanism:
+
+- across different donor systems, history-dependent change may also appear as altered sensitivity, control contribution, effective relations, or future sampling / behavior; these items are not treated as one uniformly direct evidence class or one shared mechanism;
+- the relation `CURRENT STATE × CURRENT INPUT × CURRENT GOAL × CURRENT CONTEXT → which consequences of past history matter now` is retained as a bounded synthesis, not as one independently isolated empirical construct.
 
 ## Normative layer
 
