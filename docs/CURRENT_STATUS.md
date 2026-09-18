@@ -299,3 +299,29 @@ Do not create by default:
 - automatic answer attribution.
 
 The next justified work may instead move to another bounded research candidate such as F1, F3, F4, CA-01 / CASE E or ES-02.
+
+
+---
+
+## 12. Cross-domain donor reconciliation checkpoint — 2026-09-18
+
+The current donor cycle is recorded in
+[`CROSS_DOMAIN_DONOR_RECONCILIATION_2026_09_18.md`](CROSS_DOMAIN_DONOR_RECONCILIATION_2026_09_18.md).
+
+```text
+BROAD DONOR EXPLORATION = BOUNDED-SUFFICIENT FOR CURRENT SYNTHESIS
+NO BROAD DONOR RESEARCH REQUIRED
+RESIDUAL CONTESTED MECHANISMS = HOLD
+NEW PRIMITIVE / MODULE / OWNER = NONE
+IMPLEMENTATION / RUNTIME AUTHORIZATION = NONE
+```
+
+The next bounded line is interruption → resumption, discriminating `CONTENT` vs `GOAL` vs `CONTEXT` vs `RATIONALE / ORIENTATION-LIKE STATE` under matched-information and matched-format/budget controls.
+
+`CONTENT CONTINUITY ≠ ORIENTATION CONTINUITY` remains a research synthesis until operationalized; it is not treated as an independently established empirical construct.
+
+```text
+RESEARCH RESULT ≠ ARCHITECTURE CANON
+NATURE AS DONOR ≠ NATURE AS BLUEPRINT
+ARCHITECTURE CONSEQUENCE = NONE
+```
