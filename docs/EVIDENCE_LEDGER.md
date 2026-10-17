@@ -386,3 +386,75 @@ claim
 If existing architecture can express the required behaviour without material semantic loss, the correct result is:
 
 `NO NEW CONSTRUCT NEEDED`.
+
+
+---
+
+## 10. 🔬 Cross-cultural donor crosswalk — 2026-09-28
+
+**Status:** `EVIDENCE / CROSSWALK UPDATE · NO NEW PRIMITIVE · NO WORKSTREAM REOPEN`
+
+A recent donor review across Soviet/Russian and Western research was reconciled
+against current CLOS coverage.
+
+### Source / reconstruction / provenance
+
+Relevant donor families:
+- Likhachev textology / reconstructed textual history;
+- Johnson source monitoring;
+- Schacter misattribution / constructive memory;
+- Halbwachs / Ricoeur reconstructive memory and historical criticism.
+
+Bounded support:
+
+```text
+CONTENT MAY SURVIVE
+WHILE
+SOURCE / STATUS / CURRENTNESS MAY DEGRADE
+
+RECONSTRUCTED STATE != OBSERVED STATE
+SEMANTIC FIDELITY != PROVENANCE FIDELITY
+```
+
+Current CLOS already distinguishes source, retrieved form, reconstruction,
+interpretation, revision and current commitment. Therefore this evidence is
+primarily useful for discriminating fixtures, not for a new reconstruction
+primitive.
+
+### State-dependent cognition
+
+Relevant donor families:
+- interoception / neurovisceral regulation;
+- Seth / Friston active-inference traditions;
+- cardiac-state and taVNS studies as bounded empirical examples.
+
+The donor value is intentionally weaker than the biological mechanism:
+
+```text
+AGENT STATE != STATIC CONTEXT
+STATE MODULATION != AUTHORITY
+ENDOGENOUS SIGNAL != EXTERNAL-WORLD EVIDENCE BY DEFAULT
+```
+
+This does not justify a vagus-like architecture, state module, HRV gate,
+stimulation policy or biological emulation.
+
+Residual research question:
+which internal-state variables, if any, require explicit inspectable
+representation when they materially change attention, mode, priority or
+next-step selection?
+
+### Feedback / trajectory / augmentation residuals
+
+Other useful donor lines add bounded test questions rather than new CLOS laws:
+
+```text
+EXPECTED RESULT != ACTUAL RESULT
+SAME GOAL != SAME TRAJECTORY
+COUPLING != IDENTITY
+DISTRIBUTED STATE != DISTRIBUTED AUTHORITY
+```
+
+These remain `OPEN_RESEARCH / OWNER-ROUTED`. No current CLOS status,
+fixture authorization, implementation authority or owner adoption changes as a
+result of this crosswalk.
