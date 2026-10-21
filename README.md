@@ -1,5 +1,14 @@
 # ⚗️ VELANTRIM COGNITIVE LIFE OS · CLOS
 
+> ⚗️ **Researching the structure of cognition before choosing the technology.**
+>
+> **Why:** LLMs, databases and agent frameworks are implementation choices; they do not, by themselves, explain how a system preserves context, revises beliefs or respects authority boundaries.
+>
+> **Example:** Compare two implementations by asking whether they preserve the same uncertainty, revision and decision constraints.
+>
+> **Scope:** Active research blueprint, not an implemented or authorized Cognitive OS.
+
+
 **English** · [Русская версия](README.ru.md) · research-first · substrate-neutral · measurement-first
 
 > **CLOS** is a research-first cognitive architecture program about which distinctions, states, transitions, revision semantics, and authority boundaries must survive over time independently of any particular implementation substrate.
