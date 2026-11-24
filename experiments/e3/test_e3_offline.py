@@ -251,6 +251,20 @@ def test_committed_frozen_episodes_match_fixtures() -> None:
     assert not runner.failed_episode_ids(frozen)
 
 
+def test_paid_episodes_refused_when_frozen() -> None:
+    with tempfile.TemporaryDirectory() as t:
+        p = Path(t) / "episodes.json"
+        assert runner.frozen_episodes_block(p, "deepseek") is None  # no frozen file yet
+        p.write_text(json.dumps({"status": "UNREVIEWED"}), encoding="utf-8")
+        assert runner.frozen_episodes_block(p, "deepseek") is None
+        p.write_text(json.dumps({"status": "FROZEN"}), encoding="utf-8")
+        assert "FROZEN" in runner.frozen_episodes_block(p, "deepseek")
+        assert runner.frozen_episodes_block(p, "openrouter") is not None
+        assert runner.frozen_episodes_block(p, "mock") is None  # offline tests stay free
+    # the committed frozen file really blocks a paid episodes run
+    assert runner.frozen_episodes_block(HERE / "frozen" / "episodes.json", "deepseek") is not None
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
