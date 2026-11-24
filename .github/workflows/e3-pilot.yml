@@ -44,9 +44,12 @@ on:
         options: [episodes, pilot]
         default: episodes
       resume_from:
-        description: "stage episodes only: repo path of an earlier episodes.json; keeps valid decisions, regenerates failed ones (empty = fresh)"
-        type: string
-        default: ""
+        description: "episodes stage: none = fresh run; or pick an earlier run to keep its valid decisions"
+        type: choice
+        options:
+          - none
+          - experiments/e3/history/episodes_v0.2_run45424109785.json
+        default: none
       model:
         description: "Model id; empty = provider default (deepseek: deepseek-flash, openrouter: deepseek/deepseek-chat)"
         type: string
@@ -239,7 +242,7 @@ jobs:
           out="results/e3/${PROVIDER}/${STAGE}-${GITHUB_RUN_ID}"
           mkdir -p "$out"
           extra=()
-          if [ -n "$RESUME_FROM" ]; then
+          if [ -n "$RESUME_FROM" ] && [ "$RESUME_FROM" != none ]; then
             case "$RESUME_FROM" in
               experiments/e3/history/*.json) [ -f "$RESUME_FROM" ] || { echo "::error::resume_from not found: $RESUME_FROM"; exit 1; }
                 extra=(--resume-episodes "$RESUME_FROM");;
