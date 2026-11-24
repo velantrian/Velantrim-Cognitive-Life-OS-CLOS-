@@ -268,8 +268,7 @@ def test_paid_episodes_refused_when_frozen() -> None:
 def test_committed_results_reproduce() -> None:
     """Recomputing the score from the committed answers (no API calls) gives the committed score.json."""
     src = HERE / "results" / "deepseek-pilot-45437512167"
-    if not (src / "successor.jsonl").exists():
-        return
+    assert (src / "successor.jsonl").exists(), "answer archive missing: results must stay committed"
     with tempfile.TemporaryDirectory() as t:
         work = Path(t)
         shutil.copy(src / "successor.jsonl", work / "successor.jsonl")
