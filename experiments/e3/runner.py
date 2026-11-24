@@ -62,6 +62,7 @@ PROVIDERS: dict[str, dict[str, str]] = {
 VARIANTS = ["authorial", "summary", "control", "none"]
 ROWS = ["row1", "row2", "row3"]
 RETRY_STATUS = {429, 500, 502, 503, 504}
+MAX_TRUNCATION_RETRIES = 2
 
 KEY_PATTERNS = [
     re.compile(r"sk-or-[A-Za-z0-9_-]{8,}"),
@@ -166,7 +167,8 @@ class Client:
         payload = {"model": self.model, "messages": messages, "max_tokens": self.max_tokens, "stream": False}
         data = json.dumps(payload).encode("utf-8")
         last_err: dict[str, Any] = {}
-        for attempt in range(4):
+        truncations = 0
+        for attempt in range(6):
             req = urllib.request.Request(
                 self.cfg["url"],
                 data=data,
@@ -198,6 +200,17 @@ class Client:
             if isinstance(body, dict) and body.get("error"):
                 return {"ok": False, "error": {"type": "ProviderError", "body": redact(json.dumps(body["error"], ensure_ascii=False)[:2000])}}
             choice = (body.get("choices") or [{}])[0] or {}
+            if choice.get("finish_reason") == "length":
+                # Output cut off (with thinking enabled, reasoning can use the whole budget).
+                # A truncated answer is not data for this experiment: retry, counted in the call cap.
+                truncations += 1
+                if truncations <= MAX_TRUNCATION_RETRIES:
+                    if self.calls >= self.max_calls:
+                        raise CallBudgetExceeded(f"call budget {self.max_calls} reached retrying truncated {tag}")
+                    self.calls += 1
+                    continue
+                return {"ok": False, "error": {"type": "Truncated", "message": "finish_reason=length after retries",
+                                               "usage": body.get("usage") or {}}, "attempts": truncations}
             msg = choice.get("message") or {}
             content = msg.get("content")
             if isinstance(content, list):
@@ -206,6 +219,7 @@ class Client:
                 "ok": True,
                 "content": content or "",
                 "finish_reason": choice.get("finish_reason"),
+                "attempts": truncations + 1,
                 "usage": body.get("usage") or {},
                 "model": body.get("model") or self.model,
                 "id": body.get("id"),
@@ -280,10 +294,22 @@ def executor_messages(prm: dict, f: dict, story: str) -> list[dict[str, str]]:
 
 # ---------------------------------------------------------------- stage: episodes
 
-def stage_episodes(client: Client, fam: dict, prm: dict, out: Path) -> int:
+def failed_episode_ids(resume: dict) -> list[str]:
+    return [e["episode_id"] for e in resume["episodes"]
+            if e["decision"].get("decision") not in ("complete", "not_complete")]
+
+
+def stage_episodes(client: Client, fam: dict, prm: dict, out: Path, resume: dict | None = None) -> int:
     episodes = []
+    prev = {e["episode_id"]: e for e in resume["episodes"]} if resume else {}
+    reran: list[str] = []
     for f, story in episodes_of(fam):
         eid = f"{f['id']}{story}"
+        old = prev.get(eid)
+        if old and old["decision"].get("decision") in ("complete", "not_complete"):
+            episodes.append(old)  # decision stays fixed (prereg §3.2); not regenerated
+            print(f"[{eid}] kept from earlier run: decision={old['decision']['decision']}")
+            continue
         msgs = executor_messages(prm, f, story)
         scripted = f["stories"][story].get("scripted_decision")
         if scripted:
@@ -305,7 +331,11 @@ def stage_episodes(client: Client, fam: dict, prm: dict, out: Path) -> int:
         if not cal["ok"]:
             print(f"[{eid}] calibration call failed: {cal['error']}", file=sys.stderr)
             return 1
+        if old:
+            reran.append(eid)
         episodes.append({
+            "superseded": ({"decision": old["decision"], "calibration_summary": old["calibration_summary"],
+                            "reason": "decision was format_error / truncated (infrastructure), regenerated"} if old else None),
             "episode_id": eid,
             "family": f["id"],
             "story": story,
@@ -331,6 +361,8 @@ def stage_episodes(client: Client, fam: dict, prm: dict, out: Path) -> int:
         "calibration": {"words": words, "median": statistics.median(words),
                         "proposed_length_limit_words": proposed,
                         "rule": "медиана длины пробных сводок, округлённая вверх до десятка"},
+        "reran_episodes": reran,
+        "resumed_from_created_at": resume.get("created_at") if resume else None,
         "length_limit_words": None,
         "status": "UNREVIEWED",
         "episodes": episodes,
@@ -485,9 +517,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--frozen", type=Path, default=HERE / "frozen" / "episodes.json")
     ap.add_argument("--repeats", type=int, default=2)
     ap.add_argument("--out", type=Path, required=True)
-    ap.add_argument("--max-tokens", type=int, default=4096)
+    ap.add_argument("--max-tokens", type=int, default=16384,
+                    help="with thinking enabled, 4096 let reasoning use the whole budget (F3 A, run 45424109785)")
     ap.add_argument("--timeout", type=int, default=300)
     ap.add_argument("--max-calls", type=int, default=0, help="hard cap; 0 = estimate + 10%%")
+    ap.add_argument("--resume-episodes", type=Path, default=None,
+                    help="episodes stage: keep valid decisions from this episodes.json, regenerate only failed ones")
     ap.add_argument("--allow-draft", action="store_true",
                     help="episodes stage only: allow DRAFT fixtures (pilot never allows it)")
     args = ap.parse_args(argv)
@@ -498,14 +533,30 @@ def main(argv: list[str] | None = None) -> int:
     if args.stage == "episodes" and fam["status"] != "FROZEN" and not args.allow_draft and args.provider != "mock":
         print("episodes refused: fixtures are DRAFT; review them or pass --allow-draft explicitly", file=sys.stderr)
         return 1
+    resume = None
+    if args.resume_episodes:
+        resume = json.loads(args.resume_episodes.read_text(encoding="utf-8"))
+        cur = {"families": sha(json.dumps(fam, ensure_ascii=False, sort_keys=True)),
+               "prompts": sha(json.dumps(prm, ensure_ascii=False, sort_keys=True))}
+        if resume.get("fixtures_sha") != cur:
+            print("resume refused: fixtures differ from the run being resumed (sha mismatch)", file=sys.stderr)
+            return 1
+        if args.stage != "episodes":
+            print("--resume-episodes applies to the episodes stage only", file=sys.stderr)
+            return 1
     est = estimate_calls(fam, args.stage, args.repeats)
+    if resume is not None:
+        est = 2 * len(failed_episode_ids(resume))
+        if est == 0:
+            print("nothing to resume: all decisions are valid")
+            return 0
     cap = args.max_calls or int(math.ceil(est * 1.1))
     print(f"stage={args.stage} provider={args.provider} estimated_calls={est} cap={cap}")
     client = Client(args.provider, args.model, cap, args.max_tokens, args.timeout)
     args.out.mkdir(parents=True, exist_ok=True)
     try:
         if args.stage == "episodes":
-            return stage_episodes(client, fam, prm, args.out)
+            return stage_episodes(client, fam, prm, args.out, resume)
         frozen = json.loads(args.frozen.read_text(encoding="utf-8")) if args.frozen.exists() else {}
         if not frozen:
             print(f"pilot refused: {args.frozen} not found", file=sys.stderr)
