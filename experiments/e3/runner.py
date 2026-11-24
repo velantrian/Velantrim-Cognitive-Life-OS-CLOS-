@@ -294,6 +294,19 @@ def executor_messages(prm: dict, f: dict, story: str) -> list[dict[str, str]]:
 
 # ---------------------------------------------------------------- stage: episodes
 
+def frozen_episodes_block(frozen_path: Path, provider: str) -> str | None:
+    """Paid episodes runs are refused once frozen episodes exist (prereg §3.2: decisions are fixed once)."""
+    if provider == "mock" or not frozen_path.exists():
+        return None
+    try:
+        status = json.loads(frozen_path.read_text(encoding="utf-8")).get("status")
+    except (OSError, json.JSONDecodeError):
+        return None
+    if status == "FROZEN":
+        return f"{frozen_path} is FROZEN; the next step is stage=pilot. Remove the frozen file in a reviewed change to redo episodes."
+    return None
+
+
 def failed_episode_ids(resume: dict) -> list[str]:
     return [e["episode_id"] for e in resume["episodes"]
             if e["decision"].get("decision") not in ("complete", "not_complete")]
@@ -543,6 +556,11 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         if args.stage != "episodes":
             print("--resume-episodes applies to the episodes stage only", file=sys.stderr)
+            return 1
+    if args.stage == "episodes":
+        blocked = frozen_episodes_block(args.frozen, args.provider)
+        if blocked:
+            print(f"episodes refused: {blocked}", file=sys.stderr)
             return 1
     est = estimate_calls(fam, args.stage, args.repeats)
     if resume is not None:

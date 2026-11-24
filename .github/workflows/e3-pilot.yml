@@ -173,6 +173,11 @@ jobs:
           if [ "$PROVIDER" = openrouter ] || [ "$PROVIDER" = both ]; then
             [ "$CONFIRM_OR" = "I AUTHORIZE PAID E3 CALLS VIA OPENROUTER" ] || { echo "::error::OpenRouter paid calls need confirm_openrouter = 'I AUTHORIZE PAID E3 CALLS VIA OPENROUTER'"; err=1; }
           fi
+          if [ "$MODE" = pilot ] && [ "$STAGE" = episodes ] && [ -f experiments/e3/frozen/episodes.json ] \
+             && jq -e '.status == "FROZEN"' experiments/e3/frozen/episodes.json >/dev/null; then
+            echo "::error::episodes refused: experiments/e3/frozen/episodes.json is FROZEN. Episodes are fixed once (prereg §3.2); the next step is stage=pilot. To redo episodes, remove the frozen file in a reviewed PR."
+            err=1
+          fi
           if [ "$MODE" = pilot ]; then
             for p in "$E3_FIXTURES" "$E3_RUNNER" "$E3_AUTHORIZATION"; do
               [ -e "$p" ] || { echo "::error::pilot refused: missing $p"; err=1; }
