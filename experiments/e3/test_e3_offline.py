@@ -239,6 +239,18 @@ def test_stale_history_is_refused_for_resume() -> None:
         assert rc == 1
 
 
+def test_committed_frozen_episodes_match_fixtures() -> None:
+    """Guard: editing fixtures after freezing makes this fail loudly (prereg: freeze before the run)."""
+    path = HERE / "frozen" / "episodes.json"
+    if not path.exists():
+        return
+    frozen = json.loads(path.read_text(encoding="utf-8"))
+    fam, prm = runner.load_fixtures(HERE / "fixtures")
+    assert runner.check_frozen(fam, prm, frozen) == 0
+    assert frozen["length_limit_words"] == 200
+    assert not runner.failed_episode_ids(frozen)
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
