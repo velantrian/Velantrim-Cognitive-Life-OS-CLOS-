@@ -161,6 +161,81 @@ def test_verdict_logic() -> None:
                                             "critical_error_regression_max": 0})["verdict"] == "NO VERDICT"
 
 
+class _FakeResp:
+    def __init__(self, finish: str, content: str):
+        self._b = json.dumps({"choices": [{"finish_reason": finish, "message": {"content": content}}],
+                              "usage": {}, "model": "m"}).encode()
+
+    def read(self): return self._b
+    def __enter__(self): return self
+    def __exit__(self, *a): return False
+
+
+def _client_with(responses: list, max_calls: int = 10):
+    import os
+    os.environ["DEEPSEEK_API_KEY"] = "test-key-not-real"
+    it = iter(responses)
+    orig = runner.urllib.request.urlopen
+    runner.urllib.request.urlopen = lambda req, timeout=0: next(it)
+    return runner.Client("deepseek", "m", max_calls, 16, 5), orig
+
+
+def test_truncation_is_retried_not_recorded() -> None:
+    c, orig = _client_with([_FakeResp("length", ""), _FakeResp("length", "{"), _FakeResp("stop", '{"a":1}')])
+    try:
+        r = c.chat([{"role": "user", "content": "x"}], "t")
+    finally:
+        runner.urllib.request.urlopen = orig
+    assert r["ok"] and r["finish_reason"] == "stop" and r["content"] == '{"a":1}'
+    assert c.calls == 3 and r["attempts"] == 3  # retries count against the call cap
+
+
+def test_truncation_exhausted_is_failure() -> None:
+    c, orig = _client_with([_FakeResp("length", "")] * 3)
+    try:
+        r = c.chat([{"role": "user", "content": "x"}], "t")
+    finally:
+        runner.urllib.request.urlopen = orig
+    assert not r["ok"] and r["error"]["type"] == "Truncated"
+
+
+def test_resume_regenerates_only_failed() -> None:
+    with tempfile.TemporaryDirectory() as t:
+        tmp = Path(t)
+        assert runner.main(["--stage", "episodes", "--provider", "mock", "--out", str(tmp / "e1")]) == 0
+        ep = json.loads((tmp / "e1" / "episodes.json").read_text(encoding="utf-8"))
+        victim = [e for e in ep["episodes"] if e["episode_id"] == "F3A"][0]
+        victim["decision"] = {"decision": "format_error", "public_answer": ""}
+        src = tmp / "partial.json"
+        src.write_text(json.dumps(ep, ensure_ascii=False), encoding="utf-8")
+        assert runner.failed_episode_ids(ep) == ["F3A"]
+        assert runner.main(["--stage", "episodes", "--provider", "mock", "--resume-episodes", str(src),
+                            "--out", str(tmp / "e2")]) == 0
+        new = json.loads((tmp / "e2" / "episodes.json").read_text(encoding="utf-8"))
+        assert new["reran_episodes"] == ["F3A"]
+        by_new = {e["episode_id"]: e for e in new["episodes"]}
+        by_old = {e["episode_id"]: e for e in ep["episodes"]}
+        for eid, e in by_old.items():
+            if eid != "F3A":
+                assert by_new[eid]["decision"] == e["decision"]  # decisions stay fixed
+        assert by_new["F3A"]["decision"]["decision"] == "complete"
+        assert by_new["F3A"]["superseded"]["decision"]["decision"] == "format_error"
+        # fixtures changed since that run -> refuse
+        ep["fixtures_sha"]["families"] = "0" * 16
+        src.write_text(json.dumps(ep, ensure_ascii=False), encoding="utf-8")
+        assert runner.main(["--stage", "episodes", "--provider", "mock", "--resume-episodes", str(src),
+                            "--out", str(tmp / "e3")]) == 1
+
+
+def test_history_file_is_valid_resume_input() -> None:
+    hist = json.loads((HERE / "history" / "episodes_v0.2_run45424109785.json").read_text(encoding="utf-8"))
+    fam, prm = runner.load_fixtures(HERE / "fixtures")
+    cur = {"families": runner.sha(json.dumps(fam, ensure_ascii=False, sort_keys=True)),
+           "prompts": runner.sha(json.dumps(prm, ensure_ascii=False, sort_keys=True))}
+    assert hist["fixtures_sha"] == cur, "fixtures changed since run 45424109785"
+    assert runner.failed_episode_ids(hist) == ["F3A"]
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)

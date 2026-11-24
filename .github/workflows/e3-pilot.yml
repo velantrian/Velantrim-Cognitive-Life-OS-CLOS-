@@ -43,6 +43,10 @@ on:
         type: choice
         options: [episodes, pilot]
         default: episodes
+      resume_from:
+        description: "stage episodes only: repo path of an earlier episodes.json; keeps valid decisions, regenerates failed ones (empty = fresh)"
+        type: string
+        default: ""
       model:
         description: "Model id; empty = provider default (deepseek: deepseek-flash, openrouter: deepseek/deepseek-chat)"
         type: string
@@ -78,6 +82,7 @@ jobs:
       E3_AUTHORIZATION: experiments/e3/AUTHORIZATION.md
       MODE: ${{ inputs.mode }}
       STAGE: ${{ inputs.stage }}
+      RESUME_FROM: ${{ inputs.resume_from }}
       PROVIDER: ${{ inputs.provider }}
       MODEL_INPUT: ${{ inputs.model }}
       CONFIRM_DS: ${{ inputs.confirm }}
@@ -233,8 +238,16 @@ jobs:
           esac
           out="results/e3/${PROVIDER}/${STAGE}-${GITHUB_RUN_ID}"
           mkdir -p "$out"
+          extra=()
+          if [ -n "$RESUME_FROM" ]; then
+            case "$RESUME_FROM" in
+              experiments/e3/history/*.json) [ -f "$RESUME_FROM" ] || { echo "::error::resume_from not found: $RESUME_FROM"; exit 1; }
+                extra=(--resume-episodes "$RESUME_FROM");;
+              *) echo "::error::resume_from must be experiments/e3/history/*.json"; exit 1;;
+            esac
+          fi
           # Only the selected provider's key is exposed to the runner.
-          python -I "$E3_RUNNER" \
+          python -I "$E3_RUNNER" "${extra[@]}" \
             --stage "$STAGE" \
             --provider "$PROVIDER" \
             --fixtures "$E3_FIXTURES" \
