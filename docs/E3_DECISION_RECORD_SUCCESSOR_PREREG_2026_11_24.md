@@ -142,3 +142,15 @@ Small synthetic pilot, three to four families, one model family. It does not sho
 ## 14. Disposition
 
 `DRAFT · NOT RUN`. Next step after this file: section 11 offline calibration; model phase only after section 12.
+
+## 15. Amendment 1 (pre-run, from offline calibration, 2026-11-24)
+
+Calibration files: `experiments/e3_calibration/` (`stories.py`, `calibrate.py`, `RESULTS.md`, `HASHES.txt`). No model calls were made. Changes below are made **before any run** and are the only post-draft changes.
+
+1. **Precedence of the decision rule (section 10).** Validity checks first: ceiling, floor, N ~ C, non-identifiable stories give UNKNOWN. Only then PASS, then NULL.
+2. **Over-sensitivity threshold.** R's O3+O4 rate on K2/K3 may exceed S's by at most 0.10 absolute; more blocks PASS.
+3. **Length cap per family (section 5).** F1-F3: 45 words. F4: 30 words. F4 episodes now contain decoy remarks about the same two environments.
+4. **Pre-pilot before the full run.** About 16 calls: the executor writes R and S for the 8 stories. If S keeps the deciding fact in at least 7 of 8 summaries, the primary contrast is near ceiling and the episodes are redesigned before the full budget is spent. Section 12 gate applies to it as well.
+5. **Records still to write by hand:** F2 and F3 (s03-s06). Gold and rubric for all 8 stories are frozen in `HASHES.txt`.
+
+What calibration verified: mirror structure and gold differences, scoring script behaviour on dummy answerers, the N-leaks check, the over-sensitivity guard. What it could not: anything about model behaviour, or whether a model-written summary drops the deciding fact.
