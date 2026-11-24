@@ -48,7 +48,6 @@ on:
         type: choice
         options:
           - none
-          - experiments/e3/history/episodes_v0.2_run45424109785.json
         default: none
       model:
         description: "Model id; empty = provider default (deepseek: deepseek-flash, openrouter: deepseek/deepseek-chat)"

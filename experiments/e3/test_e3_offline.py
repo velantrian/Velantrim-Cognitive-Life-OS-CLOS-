@@ -77,6 +77,7 @@ def test_f3a_request_answerable_from_materials() -> None:
     f3 = [f for f in fam["families"] if f["id"] == "F3"][0]
     req = f3["stories"]["A"]["owner_request"]
     assert "точнее нашего" not in req and "распознал" in req and "задержка" in req
+    assert "пробный пакет" in req  # boundary explicit: a sample, not the whole dump
 
 
 def test_condition_blind_and_counts() -> None:
@@ -227,13 +228,15 @@ def test_resume_regenerates_only_failed() -> None:
                             "--out", str(tmp / "e3")]) == 1
 
 
-def test_history_file_is_valid_resume_input() -> None:
-    hist = json.loads((HERE / "history" / "episodes_v0.2_run45424109785.json").read_text(encoding="utf-8"))
-    fam, prm = runner.load_fixtures(HERE / "fixtures")
-    cur = {"families": runner.sha(json.dumps(fam, ensure_ascii=False, sort_keys=True)),
-           "prompts": runner.sha(json.dumps(prm, ensure_ascii=False, sort_keys=True))}
-    assert hist["fixtures_sha"] == cur, "fixtures changed since run 45424109785"
+def test_stale_history_is_refused_for_resume() -> None:
+    """v0.2 history no longer matches fixtures v0.3: resuming it must be refused, not silently mixed."""
+    hist_path = HERE / "history" / "episodes_v0.2_run45424109785.json"
+    hist = json.loads(hist_path.read_text(encoding="utf-8"))
     assert runner.failed_episode_ids(hist) == ["F3A"]
+    with tempfile.TemporaryDirectory() as t:
+        rc = runner.main(["--stage", "episodes", "--provider", "mock", "--resume-episodes", str(hist_path),
+                          "--out", str(Path(t) / "x")])
+        assert rc == 1
 
 
 def test_call_cap() -> None:
