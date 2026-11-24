@@ -18,7 +18,10 @@
 #               prints values), prereg, fixtures, runner, authorization record,
 #               and prints the request-count estimate.
 #   smoke     — one minimal request per selected provider (`both` = 2 requests).
-#   pilot     — runs experiments/e3/runner.py for ONE provider. Paid.
+#   pilot     — runs experiments/e3/runner.py for ONE provider. Paid. Two stages:
+#               stage=episodes — source episodes + calibration summaries (14 calls);
+#                 output is reviewed and committed as experiments/e3/frozen/episodes.json.
+#               stage=pilot    — records + successor answers (24 + 96×repeats calls).
 
 name: E3 pilot (manual, gated)
 
@@ -35,6 +38,11 @@ on:
         type: choice
         options: [deepseek, openrouter, both]
         default: deepseek
+      stage:
+        description: "pilot mode only: episodes (step 1, 14 calls) | pilot (step 2, needs frozen/episodes.json)"
+        type: choice
+        options: [episodes, pilot]
+        default: episodes
       model:
         description: "Model id; empty = provider default (deepseek: deepseek-flash, openrouter: deepseek/deepseek-chat)"
         type: string
@@ -69,6 +77,7 @@ jobs:
       E3_RUNNER: experiments/e3/runner.py
       E3_AUTHORIZATION: experiments/e3/AUTHORIZATION.md
       MODE: ${{ inputs.mode }}
+      STAGE: ${{ inputs.stage }}
       PROVIDER: ${{ inputs.provider }}
       MODEL_INPUT: ${{ inputs.model }}
       CONFIRM_DS: ${{ inputs.confirm }}
@@ -114,13 +123,13 @@ jobs:
       - name: Request and cost estimate
         run: |
           set -euo pipefail
-          # Prereg §7: 4 families × 2 stories × 4 record variants × 3 continuations = 96.
+          # Stage episodes: 6 generated decisions (family 4 is scripted) + 8 calibration summaries.
+          episodes=14
+          # Stage pilot: 8 × (authorial + summary + control) records + successor answers,
+          # prereg §7: 4 families × 2 stories × 4 variants × 3 continuations = 96 per repeat.
           successor=$((96 * REPEATS))
-          # Record generation per source episode (8 episodes): completion decision,
-          # authorial record, ordinary summary, independent control record = 4 calls.
-          # "No record" variant needs no call.
-          records=$((8 * 4))
-          pilot=$((successor + records))
+          records=24
+          pilot=$((episodes + records + successor))
           cost() {  # in_price out_price calls
             if [ -n "$1" ] && [ -n "$2" ]; then
               awk -v pi="$1" -v po="$2" -v n="$3" -v ti="$EST_TOK_IN" -v to="$EST_TOK_OUT" \
@@ -133,12 +142,18 @@ jobs:
             echo "| | DeepSeek | OpenRouter |"
             echo "|---|---|---|"
             echo "| smoke requests | 1 | 1 |"
-            echo "| pilot requests (successor $successor + records $records) | $pilot | $pilot |"
+            echo "| stage episodes | $episodes | $episodes |"
+            echo "| stage pilot (records $records + successor $successor) | $((records + successor)) | $((records + successor)) |"
+            echo "| full pilot, both stages | $pilot | $pilot |"
             echo "| pilot cost @ ${EST_TOK_IN} in / ${EST_TOK_OUT} out tok per call | $(cost "$DS_USD_PER_MTOK_IN" "$DS_USD_PER_MTOK_OUT" $pilot) | $(cost "$OR_USD_PER_MTOK_IN" "$OR_USD_PER_MTOK_OUT" $pilot) |"
             echo ""
             echo "Two keys = two independent budgets. Pilot runs ONE provider; numbers are per provider, not summed."
             echo "Prereg status: RESEARCH ONLY · NO EXECUTION AUTHORIZATION."
           } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Offline runner tests (mock provider, no network)
+        if: hashFiles('experiments/e3/test_e3_offline.py') != ''
+        run: python3 -I experiments/e3/test_e3_offline.py
 
       - name: Gate paid modes
         if: inputs.mode != 'preflight'
@@ -216,15 +231,19 @@ jobs:
             deepseek)   model="${MODEL_INPUT:-deepseek-flash}" ;;
             openrouter) model="${MODEL_INPUT:-deepseek/deepseek-chat}" ;;
           esac
-          out="results/e3/${PROVIDER}/${GITHUB_RUN_ID}"
+          out="results/e3/${PROVIDER}/${STAGE}-${GITHUB_RUN_ID}"
           mkdir -p "$out"
           # Only the selected provider's key is exposed to the runner.
           python -I "$E3_RUNNER" \
+            --stage "$STAGE" \
             --provider "$PROVIDER" \
             --fixtures "$E3_FIXTURES" \
             --model "$model" \
             --repeats "$REPEATS" \
             --out "$out"
+          if [ "$STAGE" = pilot ]; then
+            python -I experiments/e3/score.py --run "$out" --fixtures "$E3_FIXTURES"
+          fi
 
       - name: Secret leak check on results
         if: inputs.mode == 'pilot' && always()
