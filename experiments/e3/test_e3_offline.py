@@ -19,20 +19,20 @@ import runner  # noqa: E402
 import score  # noqa: E402
 
 
-def freeze_copy(tmp: Path, limit: int) -> Path:
+def freeze_copy(tmp: Path, limit: int, status: str = "FROZEN") -> Path:
     fx = tmp / "fixtures"
     shutil.copytree(HERE / "fixtures", fx)
     for name in ("families.json", "prompts.json"):
         p = fx / name
         d = json.loads(p.read_text(encoding="utf-8"))
-        d["status"] = "FROZEN"
+        d["status"] = status
         p.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
     return fx
 
 
 def test_fixtures_valid() -> None:
     fam, prm = runner.load_fixtures(HERE / "fixtures")
-    assert fam["status"] == "DRAFT_NOT_FROZEN"
+    assert fam["status"] in ("DRAFT_NOT_FROZEN", "FROZEN")
     for f in fam["families"]:
         # mirror invariant: materials shared, owner words differ (except family 4)
         a, b = f["stories"]["A"], f["stories"]["B"]
@@ -70,13 +70,14 @@ def test_condition_blind_and_counts() -> None:
 def test_draft_refused() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
-        rc = runner.main(["--stage", "episodes", "--provider", "mock", "--out", str(tmp / "ep")])
+        fx = freeze_copy(tmp, 80, status="DRAFT_NOT_FROZEN")
+        rc = runner.main(["--stage", "episodes", "--provider", "mock", "--fixtures", str(fx), "--out", str(tmp / "ep")])
         assert rc == 0  # mock may use drafts
         fake = tmp / "frozen.json"
         ep = json.loads((tmp / "ep" / "episodes.json").read_text(encoding="utf-8"))
         ep.update(status="FROZEN", length_limit_words=80)
         fake.write_text(json.dumps(ep, ensure_ascii=False), encoding="utf-8")
-        rc = runner.main(["--stage", "pilot", "--provider", "mock", "--frozen", str(fake),
+        rc = runner.main(["--stage", "pilot", "--provider", "mock", "--fixtures", str(fx), "--frozen", str(fake),
                           "--out", str(tmp / "pilot")])
         assert rc == 1, "pilot must refuse DRAFT fixtures"
 

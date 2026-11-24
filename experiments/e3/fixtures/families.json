@@ -1,7 +1,7 @@
 {
   "fixture_version": "0.1-draft",
-  "status": "DRAFT_NOT_FROZEN",
-  "status_note": "Черновик на проверку оператора. Замораживается до прогона: оператор меняет status на FROZEN и фиксирует коммит. Раннер в стадии pilot отказывает, пока status != FROZEN.",
+  "status": "FROZEN",
+  "status_note": "Заморожено 2026-11-24 по прямой команде оператора; оператор проверяет по выжимке. Любая правка после стадии episodes блокирует pilot (сверка хэшей).",
   "prereg": "docs/E3_JOURNAL_RECORD_SUFFICIENCY_PREREG_2026_11_24.md",
   "seed": 20261124,
   "design_invariants": [
