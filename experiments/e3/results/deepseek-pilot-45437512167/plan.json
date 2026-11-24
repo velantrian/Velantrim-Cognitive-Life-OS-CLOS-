@@ -1,0 +1,1927 @@
+{
+  "seed": 20261124,
+  "repeats": 2,
+  "n_jobs": 192,
+  "jobs": [
+    {
+      "job_id": "F1B-control-row3-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 0
+    },
+    {
+      "job_id": "F1A-summary-row3-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 1
+    },
+    {
+      "job_id": "F1B-authorial-row3-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 2
+    },
+    {
+      "job_id": "F1B-none-row1-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 3
+    },
+    {
+      "job_id": "F2B-summary-row2-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 4
+    },
+    {
+      "job_id": "F3A-authorial-row1-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 5
+    },
+    {
+      "job_id": "F1A-control-row3-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 6
+    },
+    {
+      "job_id": "F1A-authorial-row3-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 7
+    },
+    {
+      "job_id": "F4A-control-row3-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 8
+    },
+    {
+      "job_id": "F2A-control-row1-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 9
+    },
+    {
+      "job_id": "F1A-authorial-row2-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 10
+    },
+    {
+      "job_id": "F2A-summary-row1-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 11
+    },
+    {
+      "job_id": "F2B-control-row1-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 12
+    },
+    {
+      "job_id": "F1B-control-row2-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 13
+    },
+    {
+      "job_id": "F4A-summary-row1-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 14
+    },
+    {
+      "job_id": "F1A-authorial-row2-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 15
+    },
+    {
+      "job_id": "F3A-authorial-row2-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 16
+    },
+    {
+      "job_id": "F4A-control-row3-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 17
+    },
+    {
+      "job_id": "F4A-summary-row2-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 18
+    },
+    {
+      "job_id": "F1B-summary-row3-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 19
+    },
+    {
+      "job_id": "F4A-none-row2-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 20
+    },
+    {
+      "job_id": "F3B-none-row2-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 21
+    },
+    {
+      "job_id": "F1B-summary-row2-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 22
+    },
+    {
+      "job_id": "F4B-authorial-row3-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 23
+    },
+    {
+      "job_id": "F4A-summary-row2-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 24
+    },
+    {
+      "job_id": "F2B-none-row1-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 25
+    },
+    {
+      "job_id": "F3A-none-row2-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 26
+    },
+    {
+      "job_id": "F4A-control-row1-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 27
+    },
+    {
+      "job_id": "F4B-control-row2-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 28
+    },
+    {
+      "job_id": "F1A-none-row2-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 29
+    },
+    {
+      "job_id": "F1B-control-row1-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 30
+    },
+    {
+      "job_id": "F2A-none-row2-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 31
+    },
+    {
+      "job_id": "F3B-none-row1-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 32
+    },
+    {
+      "job_id": "F2A-authorial-row1-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 33
+    },
+    {
+      "job_id": "F1A-control-row2-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 34
+    },
+    {
+      "job_id": "F2A-summary-row2-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 35
+    },
+    {
+      "job_id": "F1A-summary-row2-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 36
+    },
+    {
+      "job_id": "F4B-none-row3-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 37
+    },
+    {
+      "job_id": "F4A-summary-row3-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 38
+    },
+    {
+      "job_id": "F4B-authorial-row2-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 39
+    },
+    {
+      "job_id": "F3B-control-row3-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 40
+    },
+    {
+      "job_id": "F3B-summary-row1-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 41
+    },
+    {
+      "job_id": "F2B-summary-row3-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 42
+    },
+    {
+      "job_id": "F1A-none-row3-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 43
+    },
+    {
+      "job_id": "F2B-summary-row1-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 44
+    },
+    {
+      "job_id": "F3B-authorial-row1-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 45
+    },
+    {
+      "job_id": "F1B-none-row3-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 46
+    },
+    {
+      "job_id": "F1A-none-row3-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 47
+    },
+    {
+      "job_id": "F3A-summary-row2-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 48
+    },
+    {
+      "job_id": "F3A-control-row3-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 49
+    },
+    {
+      "job_id": "F4B-summary-row1-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 50
+    },
+    {
+      "job_id": "F3A-authorial-row2-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 51
+    },
+    {
+      "job_id": "F4A-none-row3-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 52
+    },
+    {
+      "job_id": "F3B-control-row3-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 53
+    },
+    {
+      "job_id": "F4B-none-row1-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 54
+    },
+    {
+      "job_id": "F3B-summary-row1-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 55
+    },
+    {
+      "job_id": "F2B-control-row2-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 56
+    },
+    {
+      "job_id": "F3A-authorial-row3-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 57
+    },
+    {
+      "job_id": "F3B-authorial-row1-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 58
+    },
+    {
+      "job_id": "F3B-control-row2-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 59
+    },
+    {
+      "job_id": "F2B-none-row3-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 60
+    },
+    {
+      "job_id": "F2B-none-row2-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 61
+    },
+    {
+      "job_id": "F1B-authorial-row3-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 62
+    },
+    {
+      "job_id": "F1B-none-row1-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 63
+    },
+    {
+      "job_id": "F4B-summary-row1-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 64
+    },
+    {
+      "job_id": "F4A-authorial-row1-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 65
+    },
+    {
+      "job_id": "F2A-summary-row2-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 66
+    },
+    {
+      "job_id": "F2B-control-row3-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 67
+    },
+    {
+      "job_id": "F1B-authorial-row2-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 68
+    },
+    {
+      "job_id": "F3A-none-row2-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 69
+    },
+    {
+      "job_id": "F4A-control-row2-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 70
+    },
+    {
+      "job_id": "F2B-authorial-row2-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 71
+    },
+    {
+      "job_id": "F3A-none-row3-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 72
+    },
+    {
+      "job_id": "F1B-summary-row1-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 73
+    },
+    {
+      "job_id": "F4A-authorial-row3-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 74
+    },
+    {
+      "job_id": "F2A-none-row3-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 75
+    },
+    {
+      "job_id": "F1A-control-row3-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 76
+    },
+    {
+      "job_id": "F2B-summary-row1-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 77
+    },
+    {
+      "job_id": "F1A-authorial-row1-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 78
+    },
+    {
+      "job_id": "F3B-none-row3-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 79
+    },
+    {
+      "job_id": "F4B-authorial-row1-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 80
+    },
+    {
+      "job_id": "F2B-control-row3-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 81
+    },
+    {
+      "job_id": "F3B-summary-row3-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 82
+    },
+    {
+      "job_id": "F4B-authorial-row2-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 83
+    },
+    {
+      "job_id": "F1B-none-row2-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 84
+    },
+    {
+      "job_id": "F3A-control-row2-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 85
+    },
+    {
+      "job_id": "F2A-authorial-row2-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 86
+    },
+    {
+      "job_id": "F1B-summary-row2-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 87
+    },
+    {
+      "job_id": "F3A-authorial-row3-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 88
+    },
+    {
+      "job_id": "F4A-control-row2-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 89
+    },
+    {
+      "job_id": "F2B-control-row2-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 90
+    },
+    {
+      "job_id": "F3B-authorial-row3-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 91
+    },
+    {
+      "job_id": "F4A-none-row1-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 92
+    },
+    {
+      "job_id": "F4B-summary-row3-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 93
+    },
+    {
+      "job_id": "F4A-control-row1-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 94
+    },
+    {
+      "job_id": "F4B-none-row1-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 95
+    },
+    {
+      "job_id": "F3B-summary-row2-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 96
+    },
+    {
+      "job_id": "F2A-none-row3-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 97
+    },
+    {
+      "job_id": "F1B-authorial-row2-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 98
+    },
+    {
+      "job_id": "F3A-control-row2-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 99
+    },
+    {
+      "job_id": "F3A-summary-row3-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 100
+    },
+    {
+      "job_id": "F1A-control-row1-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 101
+    },
+    {
+      "job_id": "F3A-summary-row2-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 102
+    },
+    {
+      "job_id": "F2B-authorial-row1-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 103
+    },
+    {
+      "job_id": "F2A-authorial-row3-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 104
+    },
+    {
+      "job_id": "F3A-authorial-row1-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 105
+    },
+    {
+      "job_id": "F2A-control-row1-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 106
+    },
+    {
+      "job_id": "F1A-authorial-row3-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 107
+    },
+    {
+      "job_id": "F2A-summary-row3-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 108
+    },
+    {
+      "job_id": "F1A-control-row1-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 109
+    },
+    {
+      "job_id": "F3B-authorial-row2-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 110
+    },
+    {
+      "job_id": "F4A-authorial-row2-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 111
+    },
+    {
+      "job_id": "F2A-summary-row1-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 112
+    },
+    {
+      "job_id": "F2B-authorial-row3-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 113
+    },
+    {
+      "job_id": "F3A-none-row1-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 114
+    },
+    {
+      "job_id": "F1A-none-row2-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 115
+    },
+    {
+      "job_id": "F3B-control-row1-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 116
+    },
+    {
+      "job_id": "F1A-summary-row2-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 117
+    },
+    {
+      "job_id": "F4B-control-row1-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 118
+    },
+    {
+      "job_id": "F2B-none-row3-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 119
+    },
+    {
+      "job_id": "F1B-authorial-row1-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 120
+    },
+    {
+      "job_id": "F2A-authorial-row2-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 121
+    },
+    {
+      "job_id": "F4B-control-row3-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 122
+    },
+    {
+      "job_id": "F2A-control-row2-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 123
+    },
+    {
+      "job_id": "F4B-summary-row3-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 124
+    },
+    {
+      "job_id": "F3A-summary-row3-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 125
+    },
+    {
+      "job_id": "F1B-authorial-row1-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 126
+    },
+    {
+      "job_id": "F1B-summary-row1-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 127
+    },
+    {
+      "job_id": "F1B-none-row3-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 128
+    },
+    {
+      "job_id": "F2A-authorial-row1-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 129
+    },
+    {
+      "job_id": "F2B-summary-row2-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 130
+    },
+    {
+      "job_id": "F2A-authorial-row3-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 131
+    },
+    {
+      "job_id": "F3A-control-row1-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 132
+    },
+    {
+      "job_id": "F3B-summary-row3-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 133
+    },
+    {
+      "job_id": "F3A-summary-row1-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 134
+    },
+    {
+      "job_id": "F3B-authorial-row2-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 135
+    },
+    {
+      "job_id": "F3A-summary-row1-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 136
+    },
+    {
+      "job_id": "F4B-control-row2-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 137
+    },
+    {
+      "job_id": "F3B-control-row1-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 138
+    },
+    {
+      "job_id": "F2B-authorial-row1-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 139
+    },
+    {
+      "job_id": "F4A-none-row3-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 140
+    },
+    {
+      "job_id": "F1B-control-row2-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 141
+    },
+    {
+      "job_id": "F4B-none-row2-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 142
+    },
+    {
+      "job_id": "F2B-authorial-row3-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 143
+    },
+    {
+      "job_id": "F1A-summary-row1-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 2,
+      "order": 144
+    },
+    {
+      "job_id": "F2B-control-row1-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 145
+    },
+    {
+      "job_id": "F3B-summary-row2-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 146
+    },
+    {
+      "job_id": "F4B-control-row3-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 147
+    },
+    {
+      "job_id": "F4A-authorial-row2-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 2,
+      "order": 148
+    },
+    {
+      "job_id": "F2B-none-row2-r2",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 149
+    },
+    {
+      "job_id": "F2A-none-row2-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 150
+    },
+    {
+      "job_id": "F2A-none-row1-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 151
+    },
+    {
+      "job_id": "F4A-none-row2-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 152
+    },
+    {
+      "job_id": "F2A-none-row1-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 153
+    },
+    {
+      "job_id": "F2A-summary-row3-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 154
+    },
+    {
+      "job_id": "F2B-summary-row3-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 1,
+      "order": 155
+    },
+    {
+      "job_id": "F3B-none-row2-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 156
+    },
+    {
+      "job_id": "F4B-authorial-row1-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 157
+    },
+    {
+      "job_id": "F4B-control-row1-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 2,
+      "order": 158
+    },
+    {
+      "job_id": "F2A-control-row3-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 159
+    },
+    {
+      "job_id": "F3B-control-row2-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 160
+    },
+    {
+      "job_id": "F4B-summary-row2-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 1,
+      "order": 161
+    },
+    {
+      "job_id": "F1A-none-row1-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 162
+    },
+    {
+      "job_id": "F2A-control-row3-r1",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 163
+    },
+    {
+      "job_id": "F4A-summary-row1-r1",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 164
+    },
+    {
+      "job_id": "F2B-none-row1-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 165
+    },
+    {
+      "job_id": "F3B-none-row1-r1",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 1,
+      "order": 166
+    },
+    {
+      "job_id": "F1A-summary-row1-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row1",
+      "repeat": 1,
+      "order": 167
+    },
+    {
+      "job_id": "F2B-authorial-row2-r1",
+      "episode_id": "F2B",
+      "family": "F2",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row2",
+      "repeat": 1,
+      "order": 168
+    },
+    {
+      "job_id": "F3A-none-row1-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 169
+    },
+    {
+      "job_id": "F4A-none-row1-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 170
+    },
+    {
+      "job_id": "F1B-control-row1-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 171
+    },
+    {
+      "job_id": "F1A-control-row2-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 1,
+      "order": 172
+    },
+    {
+      "job_id": "F3B-none-row3-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 173
+    },
+    {
+      "job_id": "F4A-authorial-row3-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 174
+    },
+    {
+      "job_id": "F4B-none-row2-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 2,
+      "order": 175
+    },
+    {
+      "job_id": "F1A-none-row1-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "none",
+      "row": "row1",
+      "repeat": 2,
+      "order": 176
+    },
+    {
+      "job_id": "F2A-control-row2-r2",
+      "episode_id": "F2A",
+      "family": "F2",
+      "story": "A",
+      "variant": "control",
+      "row": "row2",
+      "repeat": 2,
+      "order": 177
+    },
+    {
+      "job_id": "F4A-authorial-row1-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 2,
+      "order": 178
+    },
+    {
+      "job_id": "F3A-control-row1-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row1",
+      "repeat": 1,
+      "order": 179
+    },
+    {
+      "job_id": "F3A-control-row3-r1",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 1,
+      "order": 180
+    },
+    {
+      "job_id": "F1B-control-row3-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "control",
+      "row": "row3",
+      "repeat": 2,
+      "order": 181
+    },
+    {
+      "job_id": "F3B-authorial-row3-r2",
+      "episode_id": "F3B",
+      "family": "F3",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 2,
+      "order": 182
+    },
+    {
+      "job_id": "F3A-none-row3-r2",
+      "episode_id": "F3A",
+      "family": "F3",
+      "story": "A",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 2,
+      "order": 183
+    },
+    {
+      "job_id": "F4A-summary-row3-r2",
+      "episode_id": "F4A",
+      "family": "F4",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 184
+    },
+    {
+      "job_id": "F1B-summary-row3-r2",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 185
+    },
+    {
+      "job_id": "F4B-summary-row2-r2",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "summary",
+      "row": "row2",
+      "repeat": 2,
+      "order": 186
+    },
+    {
+      "job_id": "F4B-none-row3-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "none",
+      "row": "row3",
+      "repeat": 1,
+      "order": 187
+    },
+    {
+      "job_id": "F1A-summary-row3-r2",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "summary",
+      "row": "row3",
+      "repeat": 2,
+      "order": 188
+    },
+    {
+      "job_id": "F1A-authorial-row1-r1",
+      "episode_id": "F1A",
+      "family": "F1",
+      "story": "A",
+      "variant": "authorial",
+      "row": "row1",
+      "repeat": 1,
+      "order": 189
+    },
+    {
+      "job_id": "F4B-authorial-row3-r1",
+      "episode_id": "F4B",
+      "family": "F4",
+      "story": "B",
+      "variant": "authorial",
+      "row": "row3",
+      "repeat": 1,
+      "order": 190
+    },
+    {
+      "job_id": "F1B-none-row2-r1",
+      "episode_id": "F1B",
+      "family": "F1",
+      "story": "B",
+      "variant": "none",
+      "row": "row2",
+      "repeat": 1,
+      "order": 191
+    }
+  ]
+}
