@@ -265,6 +265,24 @@ def test_paid_episodes_refused_when_frozen() -> None:
     assert runner.frozen_episodes_block(HERE / "frozen" / "episodes.json", "deepseek") is not None
 
 
+def test_committed_results_reproduce() -> None:
+    """Recomputing the score from the committed answers (no API calls) gives the committed score.json."""
+    src = HERE / "results" / "deepseek-pilot-45437512167"
+    if not (src / "successor.jsonl").exists():
+        return
+    with tempfile.TemporaryDirectory() as t:
+        work = Path(t)
+        shutil.copy(src / "successor.jsonl", work / "successor.jsonl")
+        assert score.main(["--run", str(work), "--fixtures", str(HERE / "fixtures")]) == 0
+        assert json.loads((work / "score.json").read_text(encoding="utf-8")) == \
+            json.loads((src / "score.json").read_text(encoding="utf-8"))
+        assert (work / "annotation_blind.csv").read_text(encoding="utf-8").strip() == \
+            (src / "annotation_blind.csv").read_text(encoding="utf-8").strip()
+        assert not (src / "annotation_key.json").exists(), "key must not be committed (blind annotation)"
+    rows = [json.loads(l) for l in (src / "successor.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    assert len(rows) == 192 and all(r["ok"] and not r["format_error"] for r in rows)
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)

@@ -1,0 +1,349 @@
+{
+  "n_answers": 192,
+  "by_variant": {
+    "authorial": {
+      "correct": 0.875,
+      "status_ok": 0.812,
+      "premature_completion": 0.0,
+      "unnecessary_check": 0.042,
+      "honest_gap": 0.0,
+      "format_error": 0.0,
+      "n": 48,
+      "unsupported_claims_per_answer": 0.0
+    },
+    "summary": {
+      "correct": 0.938,
+      "status_ok": 0.938,
+      "premature_completion": 0.0,
+      "unnecessary_check": 0.0,
+      "honest_gap": 0.021,
+      "format_error": 0.0,
+      "n": 48,
+      "unsupported_claims_per_answer": 0.021
+    },
+    "control": {
+      "correct": 0.875,
+      "status_ok": 0.958,
+      "premature_completion": 0.0,
+      "unnecessary_check": 0.0,
+      "honest_gap": 0.0,
+      "format_error": 0.0,
+      "n": 48,
+      "unsupported_claims_per_answer": 0.042
+    },
+    "none": {
+      "correct": 0.75,
+      "status_ok": 0.75,
+      "premature_completion": 0.0,
+      "unnecessary_check": 0.0,
+      "honest_gap": 0.25,
+      "format_error": 0.0,
+      "n": 48,
+      "unsupported_claims_per_answer": 0.75
+    }
+  },
+  "by_variant_row": {
+    "authorial": {
+      "row1": {
+        "correct": 0.625,
+        "status_ok": 0.812,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.125,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "row2": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "row3": {
+        "correct": 1.0,
+        "status_ok": 0.625,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      }
+    },
+    "summary": {
+      "row1": {
+        "correct": 0.812,
+        "status_ok": 0.938,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.062,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "row2": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "row3": {
+        "correct": 1.0,
+        "status_ok": 0.875,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.062
+      }
+    },
+    "control": {
+      "row1": {
+        "correct": 0.625,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "row2": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.062
+      },
+      "row3": {
+        "correct": 1.0,
+        "status_ok": 0.875,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.062
+      }
+    },
+    "none": {
+      "row1": {
+        "correct": 0.25,
+        "status_ok": 0.625,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.75,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.938
+      },
+      "row2": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.688
+      },
+      "row3": {
+        "correct": 1.0,
+        "status_ok": 0.625,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 16,
+        "unsupported_claims_per_answer": 0.625
+      }
+    }
+  },
+  "row1_by_family": {
+    "F1": {
+      "authorial": {
+        "correct": 0.5,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "summary": {
+        "correct": 0.75,
+        "status_ok": 0.75,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.25,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "control": {
+        "correct": 0.5,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "none": {
+        "correct": 0.0,
+        "status_ok": 0.5,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 1.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 1.0
+      }
+    },
+    "F2": {
+      "authorial": {
+        "correct": 0.5,
+        "status_ok": 0.75,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "summary": {
+        "correct": 0.75,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "control": {
+        "correct": 0.5,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "none": {
+        "correct": 0.0,
+        "status_ok": 0.5,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 1.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 1.0
+      }
+    },
+    "F3": {
+      "authorial": {
+        "correct": 0.5,
+        "status_ok": 0.5,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.5,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "summary": {
+        "correct": 0.75,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "control": {
+        "correct": 0.5,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "none": {
+        "correct": 0.0,
+        "status_ok": 0.5,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 1.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 1.0
+      }
+    },
+    "F4": {
+      "authorial": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "summary": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "control": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.0
+      },
+      "none": {
+        "correct": 1.0,
+        "status_ok": 1.0,
+        "premature_completion": 0.0,
+        "unnecessary_check": 0.0,
+        "honest_gap": 0.0,
+        "format_error": 0.0,
+        "n": 4,
+        "unsupported_claims_per_answer": 0.75
+      }
+    }
+  },
+  "verdict": {
+    "verdict": "NO VERDICT",
+    "reason": "thresholds not set before the run (prereg §5–6)"
+  }
+}
