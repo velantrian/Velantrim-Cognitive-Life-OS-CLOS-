@@ -1,0 +1,44 @@
+# E3 · print results of an earlier run into the log (free: no secrets, no API calls).
+# Needed because artifacts cannot always be downloaded from restricted environments.
+name: E3 show run (free, read-only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Run id of an E3 pilot run whose artifact to print"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  show:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Validate input
+        env:
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          case "$RUN_ID" in ''|*[!0-9]*) echo "::error::run_id must be digits"; exit 1;; esac
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: e3-results-*
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: shown
+
+      - name: Print results
+        run: |
+          set -euo pipefail
+          find shown -type f | sort
+          for f in $(find shown -name episodes.json -o -name run_meta.json -o -name score.json | sort); do
+            echo "::group::$f"; cat "$f"; echo "::endgroup::"
+          done
+          for f in $(find shown -name records.jsonl | sort); do
+            echo "::group::$f"; cat "$f"; echo "::endgroup::"
+          done
