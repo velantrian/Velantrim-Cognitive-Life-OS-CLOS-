@@ -39,6 +39,10 @@ jobs:
           for f in $(find shown -name episodes.json -o -name run_meta.json -o -name score.json | sort); do
             echo "::group::$f"; cat "$f"; echo "::endgroup::"
           done
-          for f in $(find shown -name records.jsonl | sort); do
+          for f in $(find shown \( -name records.jsonl -o -name successor.jsonl -o -name plan.json \) | sort); do
+            echo "::group::$f"; cat "$f"; echo "::endgroup::"
+          done
+          # Blind annotation material (variant key stays out of the log on purpose: annotate blind).
+          for f in $(find shown -name annotation_blind.csv | sort); do
             echo "::group::$f"; cat "$f"; echo "::endgroup::"
           done
