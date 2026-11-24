@@ -6,15 +6,19 @@
 # authorized run can happen once the operator has approved budget and the
 # frozen fixtures + runner exist. Until then the `pilot` mode refuses.
 #
-# Modes:
-#   preflight — no API calls, no cost. Checks secret presence (never prints it),
-#               prereg file, fixtures and runner presence.
-#   smoke     — ONE minimal DeepSeek call to verify key + endpoint. Paid (tiny).
-#   pilot     — runs experiments/e3/runner.py against frozen fixtures. Paid.
-#               Refuses unless fixtures, runner and authorization record exist.
+# Two providers, two independent keys, two independent budgets:
+#   deepseek   — secret DEEPSEEK_API_KEY,   https://api.deepseek.com          (default)
+#   openrouter — secret OPENROUTER_API_KEY, https://openrouter.ai/api/v1
+# Paid use of each provider needs its own confirmation phrase and, for pilot,
+# its own authorization line in experiments/e3/AUTHORIZATION.md.
+# Results of different providers are never pooled into one E3 result.
 #
-# Secret: repository secret DEEPSEEK_API_KEY (Settings → Secrets and variables → Actions).
-# Calls go only to https://api.deepseek.com (no OpenRouter).
+# Modes:
+#   preflight — no API calls, no cost. Checks presence of both secrets (never
+#               prints values), prereg, fixtures, runner, authorization record,
+#               and prints the request-count estimate.
+#   smoke     — one minimal request per selected provider (`both` = 2 requests).
+#   pilot     — runs experiments/e3/runner.py for ONE provider. Paid.
 
 name: E3 pilot (manual, gated)
 
@@ -22,16 +26,25 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "preflight (free) | smoke (1 paid call) | pilot (paid run)"
+        description: "preflight (free) | smoke (1 paid call per provider) | pilot (paid run)"
         type: choice
         options: [preflight, smoke, pilot]
         default: preflight
+      provider:
+        description: "deepseek (default) | openrouter | both (both: preflight/smoke only)"
+        type: choice
+        options: [deepseek, openrouter, both]
+        default: deepseek
       model:
-        description: "DeepSeek model id"
+        description: "Model id; empty = provider default (deepseek: deepseek-flash, openrouter: deepseek/deepseek-chat)"
         type: string
-        default: deepseek-flash
+        default: ""
       confirm:
-        description: "For smoke/pilot type exactly: I AUTHORIZE PAID E3 CALLS"
+        description: "Paid DeepSeek: I AUTHORIZE PAID E3 CALLS"
+        type: string
+        default: ""
+      confirm_openrouter:
+        description: "Paid OpenRouter (separate): I AUTHORIZE PAID E3 CALLS VIA OPENROUTER"
         type: string
         default: ""
       repeats:
@@ -52,73 +65,138 @@ jobs:
     timeout-minutes: 120
     env:
       E3_PREREG: docs/E3_JOURNAL_RECORD_SUFFICIENCY_PREREG_2026_11_24.md
-      E3_DIR: experiments/e3
       E3_FIXTURES: experiments/e3/fixtures
       E3_RUNNER: experiments/e3/runner.py
       E3_AUTHORIZATION: experiments/e3/AUTHORIZATION.md
       MODE: ${{ inputs.mode }}
-      MODEL: ${{ inputs.model }}
-      CONFIRM: ${{ inputs.confirm }}
+      PROVIDER: ${{ inputs.provider }}
+      MODEL_INPUT: ${{ inputs.model }}
+      CONFIRM_DS: ${{ inputs.confirm }}
+      CONFIRM_OR: ${{ inputs.confirm_openrouter }}
       REPEATS: ${{ inputs.repeats }}
+      # Optional repository variables (Settings → Variables) for cost estimate.
+      # Unset → cost printed as UNKNOWN, request counts still printed.
+      DS_USD_PER_MTOK_IN: ${{ vars.E3_DEEPSEEK_USD_PER_MTOK_IN }}
+      DS_USD_PER_MTOK_OUT: ${{ vars.E3_DEEPSEEK_USD_PER_MTOK_OUT }}
+      OR_USD_PER_MTOK_IN: ${{ vars.E3_OPENROUTER_USD_PER_MTOK_IN }}
+      OR_USD_PER_MTOK_OUT: ${{ vars.E3_OPENROUTER_USD_PER_MTOK_OUT }}
+      EST_TOK_IN: ${{ vars.E3_EST_TOKENS_IN_PER_CALL || '4000' }}
+      EST_TOK_OUT: ${{ vars.E3_EST_TOKENS_OUT_PER_CALL || '1500' }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Preflight (no API calls)
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           set -euo pipefail
           fail=0
-          if [ -n "${DEEPSEEK_API_KEY:-}" ]; then
-            echo "secret DEEPSEEK_API_KEY: present (length ${#DEEPSEEK_API_KEY})"
-          else
-            echo "::error::secret DEEPSEEK_API_KEY is not set for this repository"; fail=1
-          fi
+          need_ds=0; need_or=0
+          case "$PROVIDER" in deepseek) need_ds=1;; openrouter) need_or=1;; both) need_ds=1; need_or=1;; esac
+          check() {  # name value required
+            if [ -n "$2" ]; then echo "secret $1: present"
+            elif [ "$3" = 1 ]; then echo "::error::secret $1 is not set (required for provider=$PROVIDER)"; fail=1
+            else echo "secret $1: not set (not needed for provider=$PROVIDER)"; fi
+          }
+          check DEEPSEEK_API_KEY   "${DEEPSEEK_API_KEY:-}"   $need_ds
+          check OPENROUTER_API_KEY "${OPENROUTER_API_KEY:-}" $need_or
           [ -f "$E3_PREREG" ] && echo "prereg: $E3_PREREG" || { echo "::error::prereg missing: $E3_PREREG"; fail=1; }
           for p in "$E3_FIXTURES" "$E3_RUNNER" "$E3_AUTHORIZATION"; do
             [ -e "$p" ] && echo "present: $p" || echo "missing: $p (required for pilot)"
           done
-          case "$REPEATS" in ''|*[!0-9]*) echo "::error::repeats must be a positive integer"; fail=1;; esac
-          {
-            echo "## E3 preflight"
-            echo "- mode: \`$MODE\`, model: \`$MODEL\`, repeats: \`$REPEATS\`"
-            echo "- expected successor answers: 4 families × 2 stories × 4 record variants × 3 continuations × $REPEATS"
-            echo "- prereg status: RESEARCH ONLY · NO EXECUTION AUTHORIZATION"
-          } >> "$GITHUB_STEP_SUMMARY"
+          case "$REPEATS" in ''|0|*[!0-9]*) echo "::error::repeats must be a positive integer"; fail=1;; esac
+          if [ "$MODE" = pilot ] && [ "$PROVIDER" = both ]; then
+            echo "::error::pilot runs one provider at a time; choose deepseek or openrouter"; fail=1
+          fi
           exit $fail
+
+      - name: Request and cost estimate
+        run: |
+          set -euo pipefail
+          # Prereg §7: 4 families × 2 stories × 4 record variants × 3 continuations = 96.
+          successor=$((96 * REPEATS))
+          # Record generation per source episode (8 episodes): completion decision,
+          # authorial record, ordinary summary, independent control record = 4 calls.
+          # "No record" variant needs no call.
+          records=$((8 * 4))
+          pilot=$((successor + records))
+          cost() {  # in_price out_price calls
+            if [ -n "$1" ] && [ -n "$2" ]; then
+              awk -v pi="$1" -v po="$2" -v n="$3" -v ti="$EST_TOK_IN" -v to="$EST_TOK_OUT" \
+                'BEGIN{printf "~$%.2f", n*(ti*pi+to*po)/1e6}'
+            else echo "UNKNOWN (set repo variables for prices)"; fi
+          }
+          {
+            echo "## E3 estimate (mode: \`$MODE\`, provider: \`$PROVIDER\`, repeats: \`$REPEATS\`)"
+            echo ""
+            echo "| | DeepSeek | OpenRouter |"
+            echo "|---|---|---|"
+            echo "| smoke requests | 1 | 1 |"
+            echo "| pilot requests (successor $successor + records $records) | $pilot | $pilot |"
+            echo "| pilot cost @ ${EST_TOK_IN} in / ${EST_TOK_OUT} out tok per call | $(cost "$DS_USD_PER_MTOK_IN" "$DS_USD_PER_MTOK_OUT" $pilot) | $(cost "$OR_USD_PER_MTOK_IN" "$OR_USD_PER_MTOK_OUT" $pilot) |"
+            echo ""
+            echo "Two keys = two independent budgets. Pilot runs ONE provider; numbers are per provider, not summed."
+            echo "Prereg status: RESEARCH ONLY · NO EXECUTION AUTHORIZATION."
+          } | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Gate paid modes
         if: inputs.mode != 'preflight'
         run: |
           set -euo pipefail
-          if [ "$CONFIRM" != "I AUTHORIZE PAID E3 CALLS" ]; then
-            echo "::error::paid mode '$MODE' requires confirm = 'I AUTHORIZE PAID E3 CALLS'"; exit 1
+          err=0
+          if [ "$PROVIDER" = deepseek ] || [ "$PROVIDER" = both ]; then
+            [ "$CONFIRM_DS" = "I AUTHORIZE PAID E3 CALLS" ] || { echo "::error::DeepSeek paid calls need confirm = 'I AUTHORIZE PAID E3 CALLS'"; err=1; }
           fi
-          if [ "$MODE" = "pilot" ]; then
-            missing=0
+          if [ "$PROVIDER" = openrouter ] || [ "$PROVIDER" = both ]; then
+            [ "$CONFIRM_OR" = "I AUTHORIZE PAID E3 CALLS VIA OPENROUTER" ] || { echo "::error::OpenRouter paid calls need confirm_openrouter = 'I AUTHORIZE PAID E3 CALLS VIA OPENROUTER'"; err=1; }
+          fi
+          if [ "$MODE" = pilot ]; then
             for p in "$E3_FIXTURES" "$E3_RUNNER" "$E3_AUTHORIZATION"; do
-              [ -e "$p" ] || { echo "::error::pilot refused: missing $p"; missing=1; }
+              [ -e "$p" ] || { echo "::error::pilot refused: missing $p"; err=1; }
             done
-            [ $missing -eq 0 ] || {
-              echo "Pilot needs frozen fixtures, a runner and an operator authorization record"
-              echo "(budget + explicit permission, per prereg §'Черновик'). Nothing was called."
-              exit 1; }
+            if [ -f "$E3_AUTHORIZATION" ]; then
+              line="^- pilot_${PROVIDER}_authorized: yes$"
+              grep -qE "$line" "$E3_AUTHORIZATION" || {
+                echo "::error::pilot refused: $E3_AUTHORIZATION has no line '- pilot_${PROVIDER}_authorized: yes'"; err=1; }
+            fi
           fi
+          [ $err -eq 0 ] || { echo "Nothing was called."; exit 1; }
 
-      - name: Smoke call (1 request)
-        if: inputs.mode == 'smoke'
+      - name: Smoke · DeepSeek (1 request)
+        if: inputs.mode == 'smoke' && (inputs.provider == 'deepseek' || inputs.provider == 'both')
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           set -euo pipefail
-          body=$(jq -n --arg m "$MODEL" '{model:$m, max_tokens:16, stream:false,
+          model="${MODEL_INPUT:-deepseek-flash}"
+          body=$(jq -n --arg m "$model" '{model:$m, max_tokens:16, stream:false,
                  messages:[{role:"user", content:"Reply with the single word: ok"}]}')
           code=$(curl -sS -o resp.json -w '%{http_code}' --max-time 120 \
                  https://api.deepseek.com/chat/completions \
                  -H "Authorization: Bearer ${DEEPSEEK_API_KEY}" \
                  -H "Content-Type: application/json" -d "$body")
-          echo "HTTP $code"
+          echo "DeepSeek HTTP $code"
           jq '{model, finish: .choices[0].finish_reason, usage, error}' resp.json || true
+          rm -f resp.json
+          [ "$code" = "200" ]
+
+      - name: Smoke · OpenRouter (1 request)
+        if: inputs.mode == 'smoke' && (inputs.provider == 'openrouter' || inputs.provider == 'both')
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          set -euo pipefail
+          model="${MODEL_INPUT:-deepseek/deepseek-chat}"
+          [ "$PROVIDER" = both ] && model="deepseek/deepseek-chat"  # MODEL_INPUT is DeepSeek-native when both
+          body=$(jq -n --arg m "$model" '{model:$m, max_tokens:16, stream:false,
+                 messages:[{role:"user", content:"Reply with the single word: ok"}]}')
+          code=$(curl -sS -o resp.json -w '%{http_code}' --max-time 120 \
+                 https://openrouter.ai/api/v1/chat/completions \
+                 -H "Authorization: Bearer ${OPENROUTER_API_KEY}" \
+                 -H "Content-Type: application/json" -d "$body")
+          echo "OpenRouter HTTP $code"
+          jq '{model, provider, finish: .choices[0].finish_reason, usage, error}' resp.json || true
           rm -f resp.json
           [ "$code" = "200" ]
 
@@ -130,14 +208,21 @@ jobs:
       - name: Run E3 pilot
         if: inputs.mode == 'pilot'
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ inputs.provider == 'deepseek' && secrets.DEEPSEEK_API_KEY || '' }}
+          OPENROUTER_API_KEY: ${{ inputs.provider == 'openrouter' && secrets.OPENROUTER_API_KEY || '' }}
         run: |
           set -euo pipefail
-          out="results/e3/${GITHUB_RUN_ID}"
+          case "$PROVIDER" in
+            deepseek)   model="${MODEL_INPUT:-deepseek-flash}" ;;
+            openrouter) model="${MODEL_INPUT:-deepseek/deepseek-chat}" ;;
+          esac
+          out="results/e3/${PROVIDER}/${GITHUB_RUN_ID}"
           mkdir -p "$out"
+          # Only the selected provider's key is exposed to the runner.
           python -I "$E3_RUNNER" \
+            --provider "$PROVIDER" \
             --fixtures "$E3_FIXTURES" \
-            --model "$MODEL" \
+            --model "$model" \
             --repeats "$REPEATS" \
             --out "$out"
 
@@ -145,11 +230,18 @@ jobs:
         if: inputs.mode == 'pilot' && always()
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           set -euo pipefail
           [ -d results ] || exit 0
-          if grep -rqF -- "$DEEPSEEK_API_KEY" results; then
-            echo "::error::API key found in results — artifacts will not be uploaded"
+          for k in "${DEEPSEEK_API_KEY:-}" "${OPENROUTER_API_KEY:-}"; do
+            if [ -n "$k" ] && grep -rqF -- "$k" results; then
+              echo "::error::API key found in results — artifacts will not be uploaded"
+              rm -rf results; exit 1
+            fi
+          done
+          if grep -rqE 'sk-or-[A-Za-z0-9_-]{8,}' results; then
+            echo "::error::OpenRouter-shaped key found in results — artifacts will not be uploaded"
             rm -rf results; exit 1
           fi
           echo "no key material in results"
@@ -157,7 +249,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: inputs.mode == 'pilot' && always()
         with:
-          name: e3-results-${{ github.run_id }}
+          name: e3-results-${{ inputs.provider }}-${{ github.run_id }}
           path: results/e3/
           if-no-files-found: ignore
           retention-days: 90
