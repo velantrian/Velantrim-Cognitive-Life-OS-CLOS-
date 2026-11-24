@@ -282,6 +282,31 @@ def test_committed_results_reproduce() -> None:
     assert len(rows) == 192 and all(r["ok"] and not r["format_error"] for r in rows)
 
 
+def test_annotation_package_is_blind_and_reproducible() -> None:
+    sys.path.insert(0, str(HERE))
+    import make_annotation_package as mk
+    pkg = HERE / "annotation"
+    # reference is generated, not hand-edited
+    assert (pkg / "REFERENCE.md").read_text(encoding="utf-8") == mk.build_reference()
+    # the sheet equals the run's sheet and has no variant column
+    sheet = (pkg / "annotation_blind.csv").read_text(encoding="utf-8")
+    assert sheet == (HERE / "results" / "deepseek-pilot-45437512167" / "annotation_blind.csv").read_text(encoding="utf-8")
+    assert "variant" not in sheet.splitlines()[0]
+    # nothing in the package may reveal record variants, expected labels or calibration material
+    ref = (pkg / "REFERENCE.md").read_text(encoding="utf-8")
+    for bad in ("authorial", "control", "calibration", "COMPLETE_WORK", "VERIFY_FURTHER", "CONFIRM_ONLY",
+                "annotation_key", "successor.jsonl", "records.jsonl", "score.json", "RESULTS_2026"):
+        assert bad not in ref, bad
+    # the executor's answers to the owner (history) are in; the ordinary summary texts are not
+    frozen = json.loads((HERE / "frozen" / "episodes.json").read_text(encoding="utf-8"))
+    for e in frozen["episodes"]:
+        assert e["decision"]["public_answer"] in ref
+        assert e["calibration_summary"][:80] not in ref
+    # annotator-facing instructions point to exactly four files and forbid the others
+    ins = (pkg / "INSTRUCTION.md").read_text(encoding="utf-8")
+    assert "четыре файла" in ins and "не открывайте" in ins
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
