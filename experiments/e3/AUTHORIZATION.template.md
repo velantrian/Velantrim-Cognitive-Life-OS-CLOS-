@@ -1,0 +1,46 @@
+# E3 · запись о разрешении на платный пилот (шаблон)
+
+Это шаблон. Workflow `e3-pilot.yml` читает только `experiments/e3/AUTHORIZATION.md`.
+Чтобы разрешить пилот, оператор копирует шаблон в `AUTHORIZATION.md`, заполняет
+и сам меняет `no` на `yes`. Агенты этот файл не создают и `yes` не ставят.
+
+Предрегистрация: `docs/E3_JOURNAL_RECORD_SUFFICIENCY_PREREG_2026_11_24.md`
+(статус на момент шаблона: RESEARCH ONLY · NO EXECUTION AUTHORIZATION).
+
+## Два ключа — два независимых бюджета
+
+`DEEPSEEK_API_KEY` и `OPENROUTER_API_KEY` — разные аккаунты, разные тарифы,
+разные лимиты. Бюджет одного не переносится на другой и не суммируется.
+Разрешение на одного провайдера не распространяется на другого.
+
+Пилот через OpenRouter — **отдельное явное разрешение**: отдельная строка ниже
+и отдельная фраза при запуске (`I AUTHORIZE PAID E3 CALLS VIA OPENROUTER`).
+
+Результаты разных провайдеров хранятся раздельно (`results/e3/<provider>/`)
+и не объединяются в один результат E3: провайдер — источник различий
+(маршрутизация, версия модели, параметры рассуждения).
+
+## DeepSeek (прямой API)
+
+- pilot_deepseek_authorized: no
+- budget_deepseek_usd: 
+- model: 
+- repeats: 2
+- authorized_by: 
+- date: 
+
+## OpenRouter
+
+- pilot_openrouter_authorized: no
+- budget_openrouter_usd: 
+- model: 
+- repeats: 2
+- authorized_by: 
+- date: 
+
+## Оценка числа запросов (на одного провайдера)
+
+- smoke: 1 запрос
+- pilot: 96 × repeats ответов преемника + 32 запроса на подготовку записей
+  (8 эпизодов × решение, авторская запись, обычная сводка, контрольная запись);
+  при repeats = 2 → 224 запроса.
