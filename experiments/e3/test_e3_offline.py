@@ -43,9 +43,11 @@ def test_fixtures_valid() -> None:
     runner.executor_messages(prm, f, "A")
     runner.successor_messages(fam, prm, f, "запись", "row1")
     runner.successor_messages(fam, prm, f, None, "row1")
-    prm["record_authorial"].format(limit_words=100)
-    prm["record_summary"].format(limit_words=100)
-    prm["control_task"].format(limit_words=100, owner_request="x", materials="y", decision="z", public_answer="w")
+    nb = "заметка"
+    prm["record_authorial"].format(limit_words=100, episode_notes_block=nb)
+    prm["record_summary"].format(limit_words=100, episode_notes_block=nb)
+    prm["calibration_summary"].format(episode_notes_block=nb)
+    prm["control_task"].format(limit_words=100, episode_notes_block=nb, owner_request="x", materials="y", decision="z", public_answer="w")
 
 
 def test_owner_words_hidden_from_successor() -> None:
@@ -55,6 +57,26 @@ def test_owner_words_hidden_from_successor() -> None:
             msgs = runner.successor_messages(fam, prm, f, None, "row1")
             blob = "\n".join(m["content"] for m in msgs)
             assert f["stories"][s]["owner_request"] not in blob
+
+
+def test_episode_notes_hidden_from_successor() -> None:
+    fam, prm = runner.load_fixtures(HERE / "fixtures")
+    f4 = [f for f in fam["families"] if f["id"] == "F4"][0]
+    notes = f4["stories"]["A"]["episode_notes"]
+    assert notes and "ничего не написал" not in f4["materials"]
+    assert notes in runner.notes_block(prm, f4, "A")  # record authors see it
+    for rec in (None, "запись"):
+        blob = "\n".join(m["content"] for m in runner.successor_messages(fam, prm, f4, rec, "row1"))
+        assert "ничего не написал" not in blob and "не подтверждал" not in blob
+    f1 = fam["families"][0]
+    assert runner.notes_block(prm, f1, "A") == ""
+
+
+def test_f3a_request_answerable_from_materials() -> None:
+    fam, _ = runner.load_fixtures(HERE / "fixtures")
+    f3 = [f for f in fam["families"] if f["id"] == "F3"][0]
+    req = f3["stories"]["A"]["owner_request"]
+    assert "точнее нашего" not in req and "распознал" in req and "задержка" in req
 
 
 def test_condition_blind_and_counts() -> None:

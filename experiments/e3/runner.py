@@ -260,6 +260,12 @@ def validate_fixtures(fam: dict) -> None:
                 assert "scripted_decision" in f["stories"][story], f"{f['id']}: family 4 needs scripted decisions"
 
 
+def notes_block(prm: dict, f: dict, story: str) -> str:
+    """Episode notes: shown to record authors only, never to the successor."""
+    notes = f["stories"][story].get("episode_notes")
+    return prm["episode_notes_block"].format(notes=notes) if notes else ""
+
+
 def episodes_of(fam: dict) -> list[tuple[dict, str]]:
     return [(f, s) for f in fam["families"] for s in ("A", "B")]
 
@@ -295,7 +301,7 @@ def stage_episodes(client: Client, fam: dict, prm: dict, out: Path) -> int:
                 print(f"[{eid}] executor reply is not the required JSON; stored as format_error", file=sys.stderr)
                 decision = {"decision": "format_error", "public_answer": decision_raw}
         convo = msgs + [{"role": "assistant", "content": decision_raw}]
-        cal = client.chat(convo + [{"role": "user", "content": prm["calibration_summary"]}], f"calibration:{eid}")
+        cal = client.chat(convo + [{"role": "user", "content": prm["calibration_summary"].format(episode_notes_block=notes_block(prm, f, story))}], f"calibration:{eid}")
         if not cal["ok"]:
             print(f"[{eid}] calibration call failed: {cal['error']}", file=sys.stderr)
             return 1
@@ -364,12 +370,13 @@ def make_records(client: Client, fam: dict, prm: dict, frozen: dict, path: Path)
         eid, f, story = ep["episode_id"], fams[ep["family"]], ep["story"]
         convo = ep["executor_conversation"]
         jobs = {
-            "authorial": convo + [{"role": "user", "content": prm["record_authorial"].format(limit_words=limit)}],
-            "summary": convo + [{"role": "user", "content": prm["record_summary"].format(limit_words=limit)}],
+            "authorial": convo + [{"role": "user", "content": prm["record_authorial"].format(limit_words=limit, episode_notes_block=notes_block(prm, f, story))}],
+            "summary": convo + [{"role": "user", "content": prm["record_summary"].format(limit_words=limit, episode_notes_block=notes_block(prm, f, story))}],
             "control": [
                 {"role": "system", "content": prm["control_system"]},
                 {"role": "user", "content": prm["control_task"].format(
                     limit_words=limit,
+                    episode_notes_block=notes_block(prm, f, story),
                     owner_request=f["stories"][story]["owner_request"],
                     materials=f["materials"],
                     decision=ep["decision"].get("decision"),
