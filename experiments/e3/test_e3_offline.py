@@ -282,6 +282,49 @@ def test_committed_results_reproduce() -> None:
     assert len(rows) == 192 and all(r["ok"] and not r["format_error"] for r in rows)
 
 
+def test_annotation_package_is_blind_and_reproducible() -> None:
+    sys.path.insert(0, str(HERE))
+    import make_annotation_package as mk
+    pkg = HERE / "annotation"
+    # reference is generated, not hand-edited
+    assert (pkg / "REFERENCE.md").read_text(encoding="utf-8") == mk.build_reference()
+    # the sheet equals the run's sheet and has no variant column
+    sheet = (pkg / "annotation_blind.csv").read_text(encoding="utf-8")
+    assert sheet == (HERE / "results" / "deepseek-pilot-45437512167" / "annotation_blind.csv").read_text(encoding="utf-8")
+    assert "variant" not in sheet.splitlines()[0]
+    # nothing in the package may reveal record variants, expected labels or calibration material
+    ref = (pkg / "REFERENCE.md").read_text(encoding="utf-8")
+    for bad in ("authorial", "control", "calibration", "COMPLETE_WORK", "VERIFY_FURTHER", "CONFIRM_ONLY",
+                "annotation_key", "successor.jsonl", "records.jsonl", "score.json", "RESULTS_2026"):
+        assert bad not in ref, bad
+    # the executor's answers to the owner (history) are in; the ordinary summary texts are not
+    frozen = json.loads((HERE / "frozen" / "episodes.json").read_text(encoding="utf-8"))
+    for e in frozen["episodes"]:
+        assert e["decision"]["public_answer"] in ref
+        assert e["calibration_summary"][:80] not in ref
+    # annotator-facing instructions point to exactly four files and forbid the others
+    ins = (pkg / "INSTRUCTION.md").read_text(encoding="utf-8")
+    assert "четыре файла" in ins and "не открывайте" in ins
+
+
+def test_transfer_probe_results_recorded() -> None:
+    """The committed Titan/Crystal probe results match what the probe README claims."""
+    res = HERE / "transfer" / "results"
+    t = json.loads((res / "titan_probe.json").read_text(encoding="utf-8"))
+    c = json.loads((res / "crystal_probe.json").read_text(encoding="utf-8"))
+    ok = lambda r: r.get("episode", r.get("eval"))["SUCCESS"]
+    assert ok(t["T1_full_in_designed_slots"]) and ok(t["T5_goalstack_full"])
+    assert ok(c["C1_naive_default_ingest"]) and ok(c["C2_convention_typed_claims"])
+    # "done but no boundary": completion survives, the scope exclusion does not
+    for r in (t["T2b_done_but_no_boundary"], c["C2b_done_but_no_boundary"]):
+        f = r.get("episode", r.get("eval"))["found"]
+        assert f["done"] and f["result"] and not f["scope_excludes_routing"]
+    for r in (t["T2_typical_short_summary"], t["T3_record_without_owner_words"], t["T4_goalstack_typical"],
+              c["C3_record_without_owner_words"]):
+        assert not ok(r)
+    assert all(v["lossless_notebook_to_episode"] for k, v in t.items() if isinstance(v, dict) and "lossless_notebook_to_episode" in v)
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)

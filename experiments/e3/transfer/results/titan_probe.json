@@ -1,0 +1,221 @@
+{
+ "T1_full_in_designed_slots": {
+  "notebook": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": true
+   },
+   "where": {
+    "result": [
+     "key_insights"
+    ],
+    "done": [
+     "conclusion"
+    ],
+    "scope_excludes_routing": [
+     "user_goal",
+     "conclusion"
+    ]
+   },
+   "SUCCESS": true
+  },
+  "episode": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": true
+   },
+   "where": {
+    "result": [
+     "key_insights"
+    ],
+    "done": [
+     "conclusion"
+    ],
+    "scope_excludes_routing": [
+     "user_goal",
+     "conclusion"
+    ]
+   },
+   "SUCCESS": true
+  },
+  "stored_slots": {
+   "user_goal": "Прогони через «Меридиан» пробный пакет адресов из октябрьской выгрузки и скажи, как он справился: сколько адресов распознал и какая задержка. Мне это нужно только для отчёта, маршрутизацию менять не будем.",
+   "conclusion": "Работа по просьбе завершена: отчёт с цифрами готов и отправлен владельцу. Вне договорённости (владелец не просил): подключение «Меридиана» в routing, обработка низкой точности, платный тариф.",
+   "key_insights": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.\nШтатный вызов «Меридиана» в routing не подключён, обработка адресов с низкой точностью не реализована, платный тариф не оформлен."
+  },
+  "lossless_notebook_to_episode": true
+ },
+ "T2_typical_short_summary": {
+  "notebook": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion",
+     "key_insights"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "episode": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion",
+     "key_insights"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "stored_slots": {
+   "user_goal": "Проверка «Меридиана» на пробном пакете адресов",
+   "conclusion": "Пробный прогон выполнен: 48 из 50 распознаны, задержка 180 мс.",
+   "key_insights": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес."
+  },
+  "lossless_notebook_to_episode": true
+ },
+ "T2b_done_but_no_boundary": {
+  "notebook": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion",
+     "key_insights"
+    ],
+    "done": [
+     "conclusion"
+    ],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "episode": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion",
+     "key_insights"
+    ],
+    "done": [
+     "conclusion"
+    ],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "stored_slots": {
+   "user_goal": "Проверка «Меридиана» на пробном пакете адресов",
+   "conclusion": "Работа по просьбе завершена: отчёт готов. 48 из 50 распознаны, задержка 180 мс.",
+   "key_insights": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес."
+  },
+  "lossless_notebook_to_episode": true
+ },
+ "T3_record_without_owner_words": {
+  "notebook": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "episode": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "conclusion"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  },
+  "stored_slots": {
+   "user_goal": "",
+   "conclusion": "Достигнуто: Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес. Граница завершённой работы: только лабораторная проверка. Штатный вызов «Меридиана» в routing не подключён, обработка адресов с низкой точностью не реализована, платный тариф не оформлен. Маршрутизация не менялась.",
+   "key_insights": ""
+  },
+  "lossless_notebook_to_episode": true
+ },
+ "T4_goalstack_typical": {
+  "stored": {
+   "title": "Прогон пробного пакета через «Меридиан»",
+   "description": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.",
+   "status": "done"
+  },
+  "eval": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "description"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  }
+ },
+ "T5_goalstack_full": {
+  "stored": {
+   "title": "Прогони через «Меридиан» пробный пакет адресов из октябрьской выгрузки и скажи, …",
+   "status": "done"
+  },
+  "eval": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": true
+   },
+   "where": {
+    "result": [
+     "description"
+    ],
+    "done": [
+     "status"
+    ],
+    "scope_excludes_routing": [
+     "title",
+     "description"
+    ]
+   },
+   "SUCCESS": true
+  }
+ },
+ "T5_note": "status 'done' is a bare flag; for T5 its meaning ('работа завершена') is credited to the 'done' unit only because status==done"
+}

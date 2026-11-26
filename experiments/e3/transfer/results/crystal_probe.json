@@ -1,0 +1,291 @@
+{
+ "C1_naive_default_ingest": {
+  "ingest_log": [
+   {
+    "text": "Прогони через «Меридиан» пробный пакет адресов из октябрьско…",
+    "kw": {
+     "source": "user"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Работа по просьбе завершена: отчёт с цифрами готов и отправл…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   }
+  ],
+  "restored": [
+   {
+    "claim": "Прогони через «Меридиан» пробный пакет адресов из октябрьской выгрузки и скажи, как он справился: сколько адресов распознал и какая задержка. Мне это нужно только для отчёта, маршрутизацию менять не будем.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "user",
+    "metadata": {}
+   },
+   {
+    "claim": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   },
+   {
+    "claim": "Работа по просьбе завершена: отчёт с цифрами готов и отправлен владельцу.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   }
+  ],
+  "eval": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": true
+   },
+   "where": {
+    "result": [
+     "claim[1:WORLD_FACT/USER_REPORTED]"
+    ],
+    "done": [
+     "claim[2:WORLD_FACT/USER_REPORTED]"
+    ],
+    "scope_excludes_routing": [
+     "claim[0:WORLD_FACT/USER_REPORTED]"
+    ]
+   },
+   "SUCCESS": true
+  }
+ },
+ "C2_convention_typed_claims": {
+  "ingest_log": [
+   {
+    "text": "Прогони через «Меридиан» пробный пакет адресов из октябрьско…",
+    "kw": {
+     "source": "user",
+     "claim_type": "GOAL",
+     "source_status": "USER_REPORTED"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Вне договорённости (владелец не просил): подключение «Мериди…",
+    "kw": {
+     "source": "user",
+     "claim_type": "PREFERENCE",
+     "source_status": "USER_REPORTED"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано…",
+    "kw": {
+     "source": "executor",
+     "source_status": "DERIVED"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Работа по просьбе завершена: отчёт с цифрами готов и отправл…",
+    "kw": {
+     "source": "executor",
+     "source_status": "SYSTEM_AUTHORED"
+    },
+    "accepted": true,
+    "reason": null
+   }
+  ],
+  "restored": [
+   {
+    "claim": "Прогони через «Меридиан» пробный пакет адресов из октябрьской выгрузки и скажи, как он справился: сколько адресов распознал и какая задержка. Мне это нужно только для отчёта, маршрутизацию менять не будем.",
+    "claim_type": "GOAL",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "user",
+    "metadata": {
+     "task": "F3A",
+     "role": "owner_request"
+    }
+   },
+   {
+    "claim": "Вне договорённости (владелец не просил): подключение «Меридиана» в routing, обработка низкой точности, платный тариф.",
+    "claim_type": "PREFERENCE",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "user",
+    "metadata": {
+     "task": "F3A",
+     "role": "scope_exclusion"
+    }
+   },
+   {
+    "claim": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "DERIVED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {
+     "task": "F3A",
+     "role": "result"
+    }
+   },
+   {
+    "claim": "Работа по просьбе завершена: отчёт с цифрами готов и отправлен владельцу.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "SYSTEM_AUTHORED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {
+     "task": "F3A",
+     "role": "state"
+    }
+   }
+  ],
+  "eval": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": true
+   },
+   "where": {
+    "result": [
+     "claim[2:WORLD_FACT/DERIVED]"
+    ],
+    "done": [
+     "claim[3:WORLD_FACT/SYSTEM_AUTHORED]"
+    ],
+    "scope_excludes_routing": [
+     "claim[0:GOAL/USER_REPORTED]",
+     "claim[1:PREFERENCE/USER_REPORTED]"
+    ]
+   },
+   "SUCCESS": true
+  }
+ },
+ "C2b_done_but_no_boundary": {
+  "ingest_log": [
+   {
+    "text": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Работа по просьбе завершена: отчёт с цифрами готов и отправл…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   }
+  ],
+  "restored": [
+   {
+    "claim": "Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   },
+   {
+    "claim": "Работа по просьбе завершена: отчёт с цифрами готов и отправлен владельцу.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   }
+  ],
+  "eval": {
+   "found": {
+    "result": true,
+    "done": true,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "claim[0:WORLD_FACT/USER_REPORTED]"
+    ],
+    "done": [
+     "claim[1:WORLD_FACT/USER_REPORTED]"
+    ],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  }
+ },
+ "C3_record_without_owner_words": {
+  "ingest_log": [
+   {
+    "text": "Достигнуто: Пробный пакет из 50 адресов октябрьской выгрузки…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   },
+   {
+    "text": "Граница завершённой работы: только лабораторная проверка. Шт…",
+    "kw": {
+     "source": "executor"
+    },
+    "accepted": true,
+    "reason": null
+   }
+  ],
+  "restored": [
+   {
+    "claim": "Достигнуто: Пробный пакет из 50 адресов октябрьской выгрузки: распознано 48, у 2 низкая точность (улица без дома), средняя задержка 180 мс на адрес.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   },
+   {
+    "claim": "Граница завершённой работы: только лабораторная проверка. Штатный вызов «Меридиана» в routing не подключён, обработка адресов с низкой точностью не реализована, платный тариф не оформлен. Маршрутизация не менялась.",
+    "claim_type": "WORLD_FACT",
+    "source_status": "USER_REPORTED",
+    "epistemic_state": "Validated",
+    "source": "executor",
+    "metadata": {}
+   }
+  ],
+  "eval": {
+   "found": {
+    "result": true,
+    "done": false,
+    "scope_excludes_routing": false
+   },
+   "where": {
+    "result": [
+     "claim[0:WORLD_FACT/USER_REPORTED]"
+    ],
+    "done": [],
+    "scope_excludes_routing": []
+   },
+   "SUCCESS": false
+  }
+ }
+}
