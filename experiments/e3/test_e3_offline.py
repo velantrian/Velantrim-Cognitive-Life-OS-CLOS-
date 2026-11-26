@@ -307,6 +307,24 @@ def test_annotation_package_is_blind_and_reproducible() -> None:
     assert "четыре файла" in ins and "не открывайте" in ins
 
 
+def test_transfer_probe_results_recorded() -> None:
+    """The committed Titan/Crystal probe results match what the probe README claims."""
+    res = HERE / "transfer" / "results"
+    t = json.loads((res / "titan_probe.json").read_text(encoding="utf-8"))
+    c = json.loads((res / "crystal_probe.json").read_text(encoding="utf-8"))
+    ok = lambda r: r.get("episode", r.get("eval"))["SUCCESS"]
+    assert ok(t["T1_full_in_designed_slots"]) and ok(t["T5_goalstack_full"])
+    assert ok(c["C1_naive_default_ingest"]) and ok(c["C2_convention_typed_claims"])
+    # "done but no boundary": completion survives, the scope exclusion does not
+    for r in (t["T2b_done_but_no_boundary"], c["C2b_done_but_no_boundary"]):
+        f = r.get("episode", r.get("eval"))["found"]
+        assert f["done"] and f["result"] and not f["scope_excludes_routing"]
+    for r in (t["T2_typical_short_summary"], t["T3_record_without_owner_words"], t["T4_goalstack_typical"],
+              c["C3_record_without_owner_words"]):
+        assert not ok(r)
+    assert all(v["lossless_notebook_to_episode"] for k, v in t.items() if isinstance(v, dict) and "lossless_notebook_to_episode" in v)
+
+
 def test_call_cap() -> None:
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
